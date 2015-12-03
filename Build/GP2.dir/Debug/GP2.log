@@ -1,0 +1,31 @@
+﻿Build started 03/12/2015 22:51:05.
+     1>Project "C:\Users\Adam\Desktop\GP2Labs\GP2\Build\GP2.vcxproj" on node 2 (Build target(s)).
+     1>PreBuildEvent:
+         setlocal
+         "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy_directory C:/Users/Adam/Desktop/GP2Labs/GP2/assets C:/Users/Adam/Desktop/GP2Labs/GP2/Build/Debug/assets
+         if %errorlevel% neq 0 goto :cmEnd
+         :cmEnd
+         endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+         :cmErrorLevel
+         exit /b %1
+         :cmDone
+         if %errorlevel% neq 0 goto :VCEnd
+         :VCEnd
+       Link:
+         GP2.vcxproj -> C:\Users\Adam\Desktop\GP2Labs\GP2\Build\Debug\GP2.exe
+       PostBuildEvent:
+         setlocal
+         "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy_directory C:/Users/Adam/Desktop/GP2Labs/GP2/dlls C:/Users/Adam/Desktop/GP2Labs/GP2/Build/Debug
+         if %errorlevel% neq 0 goto :cmEnd
+         :cmEnd
+         endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+         :cmErrorLevel
+         exit /b %1
+         :cmDone
+         if %errorlevel% neq 0 goto :VCEnd
+         :VCEnd
+     1>Done Building Project "C:\Users\Adam\Desktop\GP2Labs\GP2\Build\GP2.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.32
