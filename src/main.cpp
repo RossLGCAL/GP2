@@ -34,7 +34,8 @@ vec3 lightDirection=vec3(0.0f,0.0f,1.0f);
 vec3 cameraPosition=vec3(0.0f,0.0f,10.0f);
 vec3 cameraLookAt = vec3(0.0f, 0.0f, 0.0f);
 vec3 skullPosition = vec3(0.0f, -3.0f, 0.0f); 
-vec3 skullRotation = vec3(0.7f, 0.0f, 0.0f);
+vec3 skullPosition2 = vec3(0.0f, -3.0f, 0.0f);
+//vec3 skullRotation = vec3(0.7f, 0.0f, 0.0f);
 
 //for Framebuffer
 GLuint FBOTexture;
@@ -84,7 +85,7 @@ void initScene()
 	shared_ptr<GameObject> skull = loadFBXFromFile(skullMeshPath);
 	skull->setScale(vec3(1.0f,1.0f,1.0f));
 	skull->setPosition(skullPosition);
-	skull->setRotation(skullRotation);
+	//skull->setRotation(skullRotation);
 	skull->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
 	shared_ptr<Material> skullMaterial=shared_ptr<Material>(new Material);
 	vsPath=ASSET_PATH+SHADER_PATH+"/specularReflectionVS.glsl";
@@ -95,6 +96,21 @@ void initScene()
 	skull->update();
 
 	gameObjects.push_back(skull);
+
+	string skull2MeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
+	shared_ptr<GameObject> skull2 = loadFBXFromFile(skull2MeshPath);
+	skull2->setScale(vec3(1.0f, 1.0f, 1.0f));
+	skullPosition2.x = skullPosition.x+10.0f;
+	skull2->setPosition(skullPosition2);
+	//skull2->setRotation(skullRotation);
+	skull2->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
+	shared_ptr<Material> skull2Material = shared_ptr<Material>(new Material);
+	skull2Material->loadShader(vsPath, fsPath);
+	skull2Material->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
+	skull2->setMaterial(skull2Material);
+	skull2->update();
+
+	gameObjects.push_back(skull2);
 }
 
 void cleanUp()

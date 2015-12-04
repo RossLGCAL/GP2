@@ -1,4 +1,4 @@
-﻿Build started 04/12/2015 12:32:16.
+﻿Build started 04/12/2015 12:51:43.
      1>Project "C:\Users\auddin200\Documents\GitHub\GP2\Build\GP2.vcxproj" on node 2 (Build target(s)).
      1>PreBuildEvent:
          setlocal
@@ -21,7 +21,6 @@
          GP2.dir\Debug\GameObject.obj
          GP2.dir\Debug\Mesh.obj
          GP2.dir\Debug\Material.obj
-         LINK : C:\Users\auddin200\Documents\GitHub\GP2\Build\Debug\GP2.exe not found or not built by the last incremental link; performing full link
      1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
          GP2.vcxproj -> C:\Users\auddin200\Documents\GitHub\GP2\Build\Debug\GP2.exe
        PostBuildEvent:
@@ -39,4 +38,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.73
+Time Elapsed 00:00:03.37
