@@ -1,18 +1,10 @@
-﻿Build started 03/12/2015 22:59:15.
-     1>Project "C:\Users\Adam\Desktop\GP2Labs\GP2\Build\ZERO_CHECK.vcxproj" on node 2 (Build target(s)).
+﻿Build started 04/12/2015 11:52:22.
+     1>Project "C:\Users\auddin200\Documents\GitHub\GP2\Build\ZERO_CHECK.vcxproj" on node 2 (Build target(s)).
      1>CustomBuild:
          Checking Build System
-         CMake is re-running because C:/Users/Adam/Desktop/GP2Labs/GP2/Build/CMakeFiles/generate.stamp is out-of-date.
-           the file 'C:/Users/Adam/Desktop/GP2Labs/GP2/CMakeLists.txt'
-           is newer than 'C:/Users/Adam/Desktop/GP2Labs/GP2/Build/CMakeFiles/generate.stamp.depend'
-           result='-1'
-         -- SDL_LIB_DIR = C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2.lib
-         -- GLM_INCLUDE_DIR = C:/Users/Adam/Desktop/GP2Labs/glm
-         -- Configuring done
-         -- Generating done
-         -- Build files have been written to: C:/Users/Adam/Desktop/GP2Labs/GP2/Build
-     1>Done Building Project "C:\Users\Adam\Desktop\GP2Labs\GP2\Build\ZERO_CHECK.vcxproj" (Build target(s)).
+         CMake does not need to re-run because C:/Users/auddin200/Documents/GitHub/GP2/Build/CMakeFiles/generate.stamp is up-to-date.
+     1>Done Building Project "C:\Users\auddin200\Documents\GitHub\GP2\Build\ZERO_CHECK.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.36
+Time Elapsed 00:00:00.42

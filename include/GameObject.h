@@ -29,6 +29,11 @@ public:
 	{
 		m_Rotation = rotation;
 	};
+#
+	void setRotationSpeed(const vec3& rotationSpeed)
+	{
+		m_RotationSpeed=rotationSpeed;
+	}
 
 	void setScale(const vec3& scale)
 	{
@@ -138,6 +143,12 @@ private:
 	vec3 m_Position;
 	vec3 m_Rotation;
 	vec3 m_Scale;
+	vec3 m_RotationSpeed;
+
+	float elapsedTime;
+	float totalTime;
+
+	unsigned int lastTicks, currentTicks;
 
 	vector<shared_ptr<GameObject> > m_ChildGameObjects;
 	GameObject * m_ParentGameObject;

@@ -81,10 +81,11 @@ void initScene()
 	skyBox->update();
 
 	string skullMeshPath=ASSET_PATH+MODEL_PATH+"/skull.fbx";
-	shared_ptr<GameObject> skull=loadFBXFromFile(skullMeshPath);
+	shared_ptr<GameObject> skull = loadFBXFromFile(skullMeshPath);
 	skull->setScale(vec3(1.0f,1.0f,1.0f));
 	skull->setPosition(skullPosition);
 	skull->setRotation(skullRotation);
+	skull->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
 	shared_ptr<Material> skullMaterial=shared_ptr<Material>(new Material);
 	vsPath=ASSET_PATH+SHADER_PATH+"/specularReflectionVS.glsl";
 	fsPath=ASSET_PATH+SHADER_PATH+"/specularReflectionFS.glsl";
@@ -117,8 +118,10 @@ void update()
 		cout<<"FPS "<<FPS<<endl;
 		/*cameraLookAt.x = cameraLookAt.x++;
 		cameraPosition.x = cameraPosition.x++;*/
-		skullRotation.x = skullRotation.x+0.02f;
+		//skullRotation.x = skullRotation.x+0.02f;
+		//skullPosition.x = skullPosition.x++;
 		//skull->setRotation(skullRotation);
+		
 	}
 
 	projMatrix = perspective(45.0f, 640.0f / 480.0f, 0.1f, 100.0f);
