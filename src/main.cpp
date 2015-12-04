@@ -87,11 +87,14 @@ void initScene()
 	skull->setPosition(skullPosition);
 	//skull->setRotation(skullRotation);
 	skull->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
-	shared_ptr<Material> skullMaterial=shared_ptr<Material>(new Material);
+	shared_ptr<Material> skullMaterial = shared_ptr<Material>(new Material);
+	string texture =ASSET_PATH+TEXTURE_PATH+"/texture.png";
+	skullMaterial->loadDiffuseMap(texture);
 	vsPath=ASSET_PATH+SHADER_PATH+"/specularReflectionVS.glsl";
 	fsPath=ASSET_PATH+SHADER_PATH+"/specularReflectionFS.glsl";
 	skullMaterial->loadShader(vsPath,fsPath);
-	skullMaterial->loadSkyBoxTextures(skyBoxFront,skyBoxBack,skyBoxLeft,skyBoxRight,skyBoxUp,skyBoxDown);
+	skullMaterial->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
+	skull->setMesh(skull->getMesh());
 	skull->setMaterial(skullMaterial);
 	skull->update();
 
