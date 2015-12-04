@@ -12,6 +12,7 @@
 //matrices
 mat4 viewMatrix;
 mat4 projMatrix;
+mat4 test;
 
 mat4 MVPMatrix;
 
@@ -31,6 +32,9 @@ float specularPower=25.0f;
 
 vec3 lightDirection=vec3(0.0f,0.0f,1.0f);
 vec3 cameraPosition=vec3(0.0f,0.0f,10.0f);
+vec3 cameraLookAt = vec3(0.0f, 0.0f, 0.0f);
+vec3 skullPosition = vec3(0.0f, -3.0f, 0.0f); 
+vec3 skullRotation = vec3(0.7f, 0.0f, 0.0f);
 
 //for Framebuffer
 GLuint FBOTexture;
@@ -59,12 +63,12 @@ void initScene()
 	cubeMesh->create(cubeVerts,numberOfCubeVerts,cubeIndices,numberOfCubeIndices);
 
 	shared_ptr<Material> skyMaterial=shared_ptr<Material>(new Material);
-	string skyBoxFront=ASSET_PATH+TEXTURE_PATH+"/Skybox/Sunny_front.png";
-	string skyBoxBack=ASSET_PATH+TEXTURE_PATH+"/Skybox/Sunny_back.png";
-	string skyBoxLeft=ASSET_PATH+TEXTURE_PATH+"/Skybox/Sunny_left.png";
-	string skyBoxRight=ASSET_PATH+TEXTURE_PATH+"/Skybox/Sunny_right.png";
-	string skyBoxUp=ASSET_PATH+TEXTURE_PATH+"/Skybox/Sunny_up.png";
-	string skyBoxDown=ASSET_PATH+TEXTURE_PATH+"/Skybox/Sunny_down.png";
+	string skyBoxFront=ASSET_PATH+TEXTURE_PATH+"/Skybox/galaxyft.png";
+	string skyBoxBack=ASSET_PATH+TEXTURE_PATH+"/Skybox/galaxybk.png";
+	string skyBoxLeft=ASSET_PATH+TEXTURE_PATH+"/Skybox/galaxylt.png";
+	string skyBoxRight=ASSET_PATH+TEXTURE_PATH+"/Skybox/galaxyrt.png";
+	string skyBoxUp=ASSET_PATH+TEXTURE_PATH+"/Skybox/galaxyup.png";
+	string skyBoxDown=ASSET_PATH+TEXTURE_PATH+"/Skybox/galaxydn.png";
 	skyMaterial->loadSkyBoxTextures(skyBoxFront,skyBoxBack,skyBoxLeft,skyBoxRight,skyBoxUp,skyBoxDown);
 
 	string vsPath=ASSET_PATH+SHADER_PATH+"/skyVS.glsl";
@@ -76,19 +80,20 @@ void initScene()
 
 	skyBox->update();
 
-	string teapotMeshPath=ASSET_PATH+MODEL_PATH+"/utah-teapot.fbx";
-	shared_ptr<GameObject> teapot=loadFBXFromFile(teapotMeshPath);
-	teapot->setScale(vec3(0.5f,0.5f,0.5f));
-	teapot->setPosition(vec3(0.0f,0.0f,-50.0f));
-	shared_ptr<Material> teapotMaterial=shared_ptr<Material>(new Material);
+	string skullMeshPath=ASSET_PATH+MODEL_PATH+"/skull.fbx";
+	shared_ptr<GameObject> skull=loadFBXFromFile(skullMeshPath);
+	skull->setScale(vec3(1.0f,1.0f,1.0f));
+	skull->setPosition(skullPosition);
+	skull->setRotation(skullRotation);
+	shared_ptr<Material> skullMaterial=shared_ptr<Material>(new Material);
 	vsPath=ASSET_PATH+SHADER_PATH+"/specularReflectionVS.glsl";
 	fsPath=ASSET_PATH+SHADER_PATH+"/specularReflectionFS.glsl";
-	teapotMaterial->loadShader(vsPath,fsPath);
-	teapotMaterial->loadSkyBoxTextures(skyBoxFront,skyBoxBack,skyBoxLeft,skyBoxRight,skyBoxUp,skyBoxDown);
-	teapot->setMaterial(teapotMaterial);
+	skullMaterial->loadShader(vsPath,fsPath);
+	skullMaterial->loadSkyBoxTextures(skyBoxFront,skyBoxBack,skyBoxLeft,skyBoxRight,skyBoxUp,skyBoxDown);
+	skull->setMaterial(skullMaterial);
+	skull->update();
 
-
-	gameObjects.push_back(teapot);
+	gameObjects.push_back(skull);
 }
 
 void cleanUp()
@@ -110,15 +115,21 @@ void update()
 		frameTime=0.0f;
 		frameCounter=0;
 		cout<<"FPS "<<FPS<<endl;
+		/*cameraLookAt.x = cameraLookAt.x++;
+		cameraPosition.x = cameraPosition.x++;*/
+		skullRotation.x = skullRotation.x+0.02f;
+		//skull->setRotation(skullRotation);
 	}
 
 	projMatrix = perspective(45.0f, 640.0f / 480.0f, 0.1f, 100.0f);
 
-	viewMatrix = lookAt(cameraPosition, vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f));
+	viewMatrix = lookAt(cameraPosition, cameraLookAt, vec3(0.0f, 1.0f, 0.0f));
+
 
 	for (auto iter = gameObjects.begin(); iter != gameObjects.end(); iter++)
 	{
 		(*iter)->update();
+		
 	}
 
 	renderQueue=gameObjects;
@@ -259,15 +270,33 @@ int main(int argc, char * arg[])
 				switch (event.key.keysym.sym)
 				{
 				case SDLK_LEFT:
+					cameraPosition.x--;
+					cameraLookAt.x--;
 					break;
 				case SDLK_RIGHT:
+					cameraPosition.x++;
+					cameraLookAt.x++;
 					break;
 				case SDLK_UP:
+					cameraPosition.y++;
+					cameraLookAt.y++;
 					break;
 				case SDLK_DOWN:
+					cameraPosition.y--;
+					cameraLookAt.y--;
 					break;
+				case SDLK_RCTRL:
+					cameraPosition.z++;
+					cameraLookAt.z++;
+					break;
+				case SDLK_LCTRL:
+					cameraPosition.z--;
+					cameraLookAt.z--;
+					break;
+		
 				default:
 					break;
+				
 				}
 			}
 		}
