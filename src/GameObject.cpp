@@ -45,6 +45,7 @@ void GameObject::update()
 		rotate(mat4(1.0f), (m_Rotation.z + totalTime)*m_RotationSpeed.z, vec3(0.0f, 0.0f, 1.0f));
 
 	m_ModelMatrix = scaleMatrix*translationMatrix*rotationMatrix;
+	m_ModelMatrix = scaleMatrix*rotationMatrix*translationMatrix;
 	m_ModelMatrix *= parentModel;
 
 	for (auto iter = m_ChildGameObjects.begin(); iter != m_ChildGameObjects.end(); iter++)
