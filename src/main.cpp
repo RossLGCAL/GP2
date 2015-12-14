@@ -31,11 +31,13 @@ vec4 specularLightColour=vec4(1.0f,1.0f,1.0f,1.0f);
 float specularPower=25.0f;
 
 vec3 lightDirection=vec3(0.0f,0.0f,1.0f);
-vec3 cameraPosition=vec3(0.0f,0.0f,10.0f);
+vec3 cameraPosition=vec3(0.0f,0.0f,25.0f);
 vec3 cameraLookAt = vec3(0.0f, 0.0f, 0.0f);
 vec3 skullPosition = vec3(0.0f, -3.0f, 0.0f); 
-vec3 skullPosition2 = vec3(0.0f, -3.0f, 0.0f);
-//vec3 skullRotation = vec3(0.7f, 0.0f, 0.0f);
+vec3 skullPosition2;
+vec3 skullPosition3;
+vec3 skullPosition4;
+vec3 skullPosition5;
 
 //for Framebuffer
 GLuint FBOTexture;
@@ -81,15 +83,15 @@ void initScene()
 
 	skyBox->update();
 
+	vsPath = ASSET_PATH + SHADER_PATH + "/specularReflectionVS.glsl";
+	fsPath = ASSET_PATH + SHADER_PATH + "/specularReflectionFS.glsl";
+
 	string skullMeshPath=ASSET_PATH+MODEL_PATH+"/skull.fbx";
 	shared_ptr<GameObject> skull = loadFBXFromFile(skullMeshPath);
 	skull->setScale(vec3(1.0f,1.0f,1.0f));
 	skull->setPosition(skullPosition);
-	//skull->setRotation(skullRotation);
-	skull->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
+	skull->setRotationSpeed(vec3(1.0f, 1.0f, 1.0f));
 	shared_ptr<Material> skullMaterial=shared_ptr<Material>(new Material);
-	vsPath=ASSET_PATH+SHADER_PATH+"/specularReflectionVS.glsl";
-	fsPath=ASSET_PATH+SHADER_PATH+"/specularReflectionFS.glsl";
 	skullMaterial->loadShader(vsPath,fsPath);
 	skullMaterial->loadSkyBoxTextures(skyBoxFront,skyBoxBack,skyBoxLeft,skyBoxRight,skyBoxUp,skyBoxDown);
 	skull->setMaterial(skullMaterial);
@@ -97,13 +99,13 @@ void initScene()
 
 	gameObjects.push_back(skull);
 
+	/*
 	string skull2MeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
 	shared_ptr<GameObject> skull2 = loadFBXFromFile(skull2MeshPath);
 	skull2->setScale(vec3(1.0f, 1.0f, 1.0f));
 	skullPosition2.x = skullPosition.x+10.0f;
 	skull2->setPosition(skullPosition2);
-	//skull2->setRotation(skullRotation);
-	skull2->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
+	skull2->setRotationSpeed(vec3(1.0f, 1.0f, -1.0f));
 	shared_ptr<Material> skull2Material = shared_ptr<Material>(new Material);
 	skull2Material->loadShader(vsPath, fsPath);
 	skull2Material->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
@@ -111,6 +113,51 @@ void initScene()
 	skull2->update();
 
 	gameObjects.push_back(skull2);
+	
+	string skull3MeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
+	shared_ptr<GameObject> skull3 = loadFBXFromFile(skull3MeshPath);
+	skull3->setScale(vec3(1.0f, 0.0f, 1.0f));
+	skullPosition3.x = skullPosition.y + 10.0f;
+	skull3->setPosition(skullPosition3);
+	skull3->setRotationSpeed(vec3(-1.0f, 1.0f, 1.0f));
+	shared_ptr<Material> skull3Material = shared_ptr<Material>(new Material);
+	skull3Material->loadShader(vsPath, fsPath);
+	skull3Material->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
+	skull3->setMaterial(skull3Material);
+	skull3->update();
+
+	gameObjects.push_back(skull3);
+	*/
+	string skull4MeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
+	shared_ptr<GameObject> skull4 = loadFBXFromFile(skull4MeshPath);
+	skull4->setScale(vec3(1.0f, 1.0f, 1.0f));
+	skullPosition4.x = skullPosition.x - 5.0f;
+	skullPosition4.y = skullPosition.y - 5.0f;
+	skull4->setPosition(skullPosition4);
+	skull4->setRotationSpeed(vec3(-1.0f, 1.0f, 1.0f));
+	shared_ptr<Material> skull4Material = shared_ptr<Material>(new Material);
+	skull4Material->loadShader(vsPath, fsPath);
+	skull4Material->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
+	skull4->setMaterial(skull4Material);
+	skull4->update();
+
+	gameObjects.push_back(skull4);
+	
+	string skull5MeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
+	shared_ptr<GameObject> skull5 = loadFBXFromFile(skull5MeshPath);
+	skull5->setScale(vec3(1.0f, 1.0f, 1.0f));
+	skullPosition5.x = skullPosition.x + 5.0f;
+	skullPosition5.y = skullPosition.y - 5.0f;
+	skull5->setPosition(skullPosition5);
+	skull5->setRotationSpeed(vec3(1.0f, 1.0f, -1.0f));
+	shared_ptr<Material> skull5Material = shared_ptr<Material>(new Material);
+	skull5Material->loadShader(vsPath, fsPath);
+	skull5Material->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
+	skull5->setMaterial(skull5Material);
+	skull5->update();
+
+	gameObjects.push_back(skull5);
+	
 }
 
 void cleanUp()
@@ -132,12 +179,6 @@ void update()
 		frameTime=0.0f;
 		frameCounter=0;
 		cout<<"FPS "<<FPS<<endl;
-		/*cameraLookAt.x = cameraLookAt.x++;
-		cameraPosition.x = cameraPosition.x++;*/
-		//skullRotation.x = skullRotation.x+0.02f;
-		//skullPosition.x = skullPosition.x++;
-		//skull->setRotation(skullRotation);
-		
 	}
 
 	projMatrix = perspective(45.0f, 640.0f / 480.0f, 0.1f, 100.0f);
