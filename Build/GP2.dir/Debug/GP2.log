@@ -1,4 +1,4 @@
-﻿Build started 4.12.2015 17:28:47.
+﻿Build started 15.12.2015 23:11:22.
      1>Project "C:\Users\Tim\Documents\GitHub\GP2\Build\GP2.vcxproj" on node 2 (Build target(s)).
      1>PreBuildEvent:
          setlocal
@@ -24,31 +24,10 @@
      1>cl : Command line warning D9002: ignoring unknown option '/EHx'
          main.cpp
      1>c:\users\tim\documents\github\gp2\include\GameObject.h(45): warning C4267: 'return' : conversion from 'size_t' to 'int', possible loss of data
+     1>C:\Users\Tim\Documents\GitHub\GP2\src\main.cpp(97): error C2660: 'GameObject::setMesh' : function does not take 0 arguments
      1>C:\Users\Tim\Documents\GitHub\GP2\src\main.cpp(134): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Tim\Documents\GitHub\GP2\Build\Debug\GP2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\SDL2-2.0.3\lib\x64\SDL2main.lib" "C:\SDL2-2.0.3\lib\x64\SDL2.lib" glu32.lib opengl32.lib "C:\glew-1.12.0\lib\Release\x64\glew32.lib" "C:\SDL2_image-2.0.0\lib\x64\SDL2_image.lib" "C:\SDL2_ttf-2.0.12\lib\x64\SDL2_ttf.lib" "C:\Program Files\Autodesk\FBX\FBX SDK\2016.1\lib\vs2013\x64\release\libfbxsdk.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Tim/Documents/GitHub/GP2/Build/Debug/GP2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Tim/Documents/GitHub/GP2/Build/Debug/GP2.lib" /MACHINE:X64  /machine:x64 /debug GP2.dir\Debug\main.obj
-         GP2.dir\Debug\Graphics.obj
-         GP2.dir\Debug\Shader.obj
-         GP2.dir\Debug\Texture.obj
-         GP2.dir\Debug\FBXLoader.obj
-         GP2.dir\Debug\FileSystem.obj
-         GP2.dir\Debug\GameObject.obj
-         GP2.dir\Debug\Mesh.obj
-         GP2.dir\Debug\Material.obj
-         GP2.vcxproj -> C:\Users\Tim\Documents\GitHub\GP2\Build\Debug\GP2.exe
-       PostBuildEvent:
-         setlocal
-         "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy_directory C:/Users/Tim/Documents/GitHub/GP2/dlls C:/Users/Tim/Documents/GitHub/GP2/Build/Debug
-         if %errorlevel% neq 0 goto :cmEnd
-         :cmEnd
-         endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
-         :cmErrorLevel
-         exit /b %1
-         :cmDone
-         if %errorlevel% neq 0 goto :VCEnd
-         :VCEnd
-     1>Done Building Project "C:\Users\Tim\Documents\GitHub\GP2\Build\GP2.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\Tim\Documents\GitHub\GP2\Build\GP2.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:03.60
+Time Elapsed 00:00:32.20

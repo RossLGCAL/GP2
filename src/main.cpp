@@ -94,7 +94,7 @@ void initScene()
 	fsPath=ASSET_PATH+SHADER_PATH+"/specularReflectionFS.glsl";
 	skullMaterial->loadShader(vsPath,fsPath);
 	skullMaterial->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
-	skull->setMesh(skull->getMesh());
+	skull->setMesh();
 	skull->setMaterial(skullMaterial);
 	skull->update();
 
