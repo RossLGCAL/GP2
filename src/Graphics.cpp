@@ -5,7 +5,6 @@
 string getRendererCapsAsString()
 {
 	stringstream stringStream;
-
 	stringStream << "OpenGl Version: " << glGetString(GL_VERSION)<<"\n";
 	stringStream << "Vendor: " << glGetString(GL_VENDOR) << "\n";
 	stringStream << "Renderer: " << glGetString(GL_RENDERER) << "\n";
@@ -19,7 +18,6 @@ string getRendererCapsAsString()
 			(const char*)glGetStringi(GL_EXTENSIONS, i);
 		stringStream << extension << ", ";
 	}
-
 	return stringStream.str();
 }
 

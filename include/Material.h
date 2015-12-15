@@ -18,8 +18,7 @@ public:
 
   void loadDiffuseMap(const string& filename);
 
-  void loadSkyBoxTextures(const string& filenamePosZ, const string& filenameNegZ, const string& filenamePosX,
-    const string& filenameNegX, const string& filenamePosY, const string& filenameNegY);
+  void loadSkyBoxTextures(const string& filenamePosZ, const string& filenameNegZ, const string& filenamePosX, const string& filenameNegX, const string& filenamePosY, const string& filenameNegY);
 
   vec4& getAmbientMaterial()
   {
@@ -100,8 +99,10 @@ public:
   {
     return (m_ShaderProgram < mat.m_ShaderProgram);
   };
+
 private:
 	void setupUniforms();
+
 private:
   GLuint m_ShaderProgram;
 

@@ -96,8 +96,7 @@ void Material::loadDiffuseMap(const string& filename)
 	glGenerateMipmap(GL_TEXTURE_2D);
 }
 
-void Material::loadSkyBoxTextures(const string& filenamePosZ, const string& filenameNegZ, const string& filenamePosX,
-  const string& filenameNegX, const string& filenamePosY, const string& filenameNegY)
+void Material::loadSkyBoxTextures(const string& filenamePosZ, const string& filenameNegZ, const string& filenamePosX, const string& filenameNegX, const string& filenamePosY, const string& filenameNegY)
 {
   m_EnvironmentMap=loadCubeTexture(filenamePosZ,filenameNegZ,filenamePosX,filenameNegX,filenamePosY,filenameNegY);
 }

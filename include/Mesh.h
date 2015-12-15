@@ -26,6 +26,7 @@ public:
 	{
 		return m_NoOfVertices;
 	};
+
 private:
 	GLuint m_VBO;
 	GLuint m_EBO;

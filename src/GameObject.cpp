@@ -12,7 +12,6 @@ GameObject::GameObject()
 	m_Rotation=vec3(0.0f);
 	m_Scale=vec3(1.0f);
 
-
 	m_ChildGameObjects.clear();
 
 	m_ParentGameObject = NULL;

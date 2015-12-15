@@ -7,9 +7,7 @@ void PrintTabs() {
 		printf("\t");
 }
 
-/**
-* Return a string-based representation based on the attribute type.
-*/
+//Return a string-based representation based on the attribute type.
 FbxString GetAttributeTypeName(FbxNodeAttribute::EType type) {
 	switch (type) {
 	case FbxNodeAttribute::eUnknown: return "unidentified";
@@ -39,7 +37,7 @@ FbxString GetAttributeTypeName(FbxNodeAttribute::EType type) {
 shared_ptr<GameObject> loadFBXFromFile(const string& filename)
 {
 	shared_ptr<GameObject> gameObject = shared_ptr<GameObject>(new GameObject);
-  level = 0;
+    level = 0;
 	// Initialize the SDK manager. This object handles memory management.
 	FbxManager* lSdkManager = FbxManager::Create();
 
@@ -127,7 +125,6 @@ void processAttribute(FbxNodeAttribute * attribute, shared_ptr<GameObject> gameO
 
 void processMesh(FbxMesh * mesh, shared_ptr<GameObject> gameObject)
 {
-
 	int numVerts = mesh->GetControlPointsCount();
 	int numIndices = mesh->GetPolygonVertexCount();
 
@@ -149,7 +146,6 @@ void processMesh(FbxMesh * mesh, shared_ptr<GameObject> gameObject)
 	gameObject->createBuffers(pVerts, numVerts, pIndices, numIndices);
 
 	cout << "Vertices " << numVerts << " Indices " << numIndices << endl;
-
 
 	if (pVerts)
 	{

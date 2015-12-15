@@ -13,7 +13,6 @@
 mat4 viewMatrix;
 mat4 projMatrix;
 mat4 test;
-
 mat4 MVPMatrix;
 
 vector<shared_ptr<GameObject> > gameObjects;
@@ -31,9 +30,9 @@ vec4 specularLightColour=vec4(1.0f,1.0f,1.0f,1.0f);
 float specularPower=25.0f;
 
 vec3 lightDirection=vec3(0.0f,0.0f,1.0f);
-vec3 cameraPosition=vec3(0.0f,0.0f,25.0f);
+vec3 cameraPosition=vec3(0.0f,20.0f,25.0f);
 vec3 cameraLookAt = vec3(0.0f, 0.0f, 0.0f);
-vec3 skullPosition = vec3(0.0f, -3.0f, 0.0f); 
+vec3 skullPosition = vec3(0.0f, 0.0f, 0.0f); 
 vec3 skullPosition2;
 vec3 skullPosition3;
 vec3 skullPosition4;
@@ -65,6 +64,7 @@ void initScene()
 	shared_ptr<Mesh> cubeMesh=shared_ptr<Mesh>(new Mesh);
 	cubeMesh->create(cubeVerts,numberOfCubeVerts,cubeIndices,numberOfCubeIndices);
 
+	//Skybox
 	shared_ptr<Material> skyMaterial=shared_ptr<Material>(new Material);
 	string skyBoxFront=ASSET_PATH+TEXTURE_PATH+"/Skybox/galaxyft.png";
 	string skyBoxBack=ASSET_PATH+TEXTURE_PATH+"/Skybox/galaxybk.png";
@@ -83,81 +83,50 @@ void initScene()
 
 	skyBox->update();
 
+	//Skulls
 	vsPath = ASSET_PATH + SHADER_PATH + "/specularReflectionVS.glsl";
 	fsPath = ASSET_PATH + SHADER_PATH + "/specularReflectionFS.glsl";
 
+	//Skull 1
 	string skullMeshPath=ASSET_PATH+MODEL_PATH+"/skull.fbx";
 	shared_ptr<GameObject> skull = loadFBXFromFile(skullMeshPath);
 	skull->setScale(vec3(1.0f,1.0f,1.0f));
 	skull->setPosition(skullPosition);
-	skull->setRotationSpeed(vec3(1.0f, 1.0f, 1.0f));
+	skull->setRotationSpeed(vec3(0.6f, 0.6f, 0.6f));
 	shared_ptr<Material> skullMaterial=shared_ptr<Material>(new Material);
 	skullMaterial->loadShader(vsPath,fsPath);
 	skullMaterial->loadSkyBoxTextures(skyBoxFront,skyBoxBack,skyBoxLeft,skyBoxRight,skyBoxUp,skyBoxDown);
 	skull->setMaterial(skullMaterial);
 	skull->update();
-
 	gameObjects.push_back(skull);
 
-	/*
+	//Skull 2
 	string skull2MeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
 	shared_ptr<GameObject> skull2 = loadFBXFromFile(skull2MeshPath);
 	skull2->setScale(vec3(1.0f, 1.0f, 1.0f));
-	skullPosition2.x = skullPosition.x+10.0f;
+	skullPosition2.z = skullPosition.z - 15.0f;
 	skull2->setPosition(skullPosition2);
-	skull2->setRotationSpeed(vec3(1.0f, 1.0f, -1.0f));
+	skull2->setRotationSpeed(vec3(0.3f, 0.6f, 0.9f));
 	shared_ptr<Material> skull2Material = shared_ptr<Material>(new Material);
 	skull2Material->loadShader(vsPath, fsPath);
 	skull2Material->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
 	skull2->setMaterial(skull2Material);
 	skull2->update();
-
 	gameObjects.push_back(skull2);
 	
+	//Skull 3
 	string skull3MeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
 	shared_ptr<GameObject> skull3 = loadFBXFromFile(skull3MeshPath);
-	skull3->setScale(vec3(1.0f, 0.0f, 1.0f));
-	skullPosition3.x = skullPosition.y + 10.0f;
+	skull3->setScale(vec3(1.0f,1.0f,1.0f));
+	skullPosition3.z = skullPosition.z + 15.0f;
 	skull3->setPosition(skullPosition3);
-	skull3->setRotationSpeed(vec3(-1.0f, 1.0f, 1.0f));
+	skull3->setRotationSpeed(vec3(0.9f, 0.6f, 0.3f));
 	shared_ptr<Material> skull3Material = shared_ptr<Material>(new Material);
 	skull3Material->loadShader(vsPath, fsPath);
 	skull3Material->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
 	skull3->setMaterial(skull3Material);
 	skull3->update();
-
 	gameObjects.push_back(skull3);
-	*/
-	string skull4MeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
-	shared_ptr<GameObject> skull4 = loadFBXFromFile(skull4MeshPath);
-	skull4->setScale(vec3(1.0f, 1.0f, 1.0f));
-	skullPosition4.x = skullPosition.x - 5.0f;
-	skullPosition4.y = skullPosition.y - 5.0f;
-	skull4->setPosition(skullPosition4);
-	skull4->setRotationSpeed(vec3(-1.0f, 1.0f, 1.0f));
-	shared_ptr<Material> skull4Material = shared_ptr<Material>(new Material);
-	skull4Material->loadShader(vsPath, fsPath);
-	skull4Material->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
-	skull4->setMaterial(skull4Material);
-	skull4->update();
-
-	gameObjects.push_back(skull4);
-	
-	string skull5MeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
-	shared_ptr<GameObject> skull5 = loadFBXFromFile(skull5MeshPath);
-	skull5->setScale(vec3(1.0f, 1.0f, 1.0f));
-	skullPosition5.x = skullPosition.x + 5.0f;
-	skullPosition5.y = skullPosition.y - 5.0f;
-	skull5->setPosition(skullPosition5);
-	skull5->setRotationSpeed(vec3(1.0f, 1.0f, -1.0f));
-	shared_ptr<Material> skull5Material = shared_ptr<Material>(new Material);
-	skull5Material->loadShader(vsPath, fsPath);
-	skull5Material->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
-	skull5->setMaterial(skull5Material);
-	skull5->update();
-
-	gameObjects.push_back(skull5);
-	
 }
 
 void cleanUp()
@@ -182,14 +151,11 @@ void update()
 	}
 
 	projMatrix = perspective(45.0f, 640.0f / 480.0f, 0.1f, 100.0f);
-
 	viewMatrix = lookAt(cameraPosition, cameraLookAt, vec3(0.0f, 1.0f, 0.0f));
-
 
 	for (auto iter = gameObjects.begin(); iter != gameObjects.end(); iter++)
 	{
 		(*iter)->update();
-		
 	}
 
 	renderQueue=gameObjects;
@@ -204,28 +170,28 @@ void renderGameObject(shared_ptr<GameObject> gameObject)
 		currentMaterial = gameObject->getMaterial();
 	}
 
-		currentMaterial->bind();
-		currentMaterial->setUniform("MVP", MVPMatrix);
-		currentMaterial->setUniform("ambientLightColour", ambientLightColour);
-		currentMaterial->setUniform("ambientMaterialColour", currentMaterial->getAmbientMaterial());
+	currentMaterial->bind();
+	currentMaterial->setUniform("MVP", MVPMatrix);
+	currentMaterial->setUniform("ambientLightColour", ambientLightColour);
+	currentMaterial->setUniform("ambientMaterialColour", currentMaterial->getAmbientMaterial());
 
-		currentMaterial->setUniform("diffuseLightColour", diffuseLightColour);
-		currentMaterial->setUniform("diffuseMaterialColour", currentMaterial->getDiffuseMaterial());
-		currentMaterial->setUniform("lightDirection", lightDirection);
+	currentMaterial->setUniform("diffuseLightColour", diffuseLightColour);
+	currentMaterial->setUniform("diffuseMaterialColour", currentMaterial->getDiffuseMaterial());
+	currentMaterial->setUniform("lightDirection", lightDirection);
 
-		currentMaterial->setUniform("specularLightColour", specularLightColour);
-		currentMaterial->setUniform("specularMaterialColour", currentMaterial->getSpecularMaterial());
-		currentMaterial->setUniform("specularPower", currentMaterial->getSpecularPower());
-		currentMaterial->setUniform("cameraPosition", cameraPosition);
+	currentMaterial->setUniform("specularLightColour", specularLightColour);
+	currentMaterial->setUniform("specularMaterialColour", currentMaterial->getSpecularMaterial());
+	currentMaterial->setUniform("specularPower", currentMaterial->getSpecularPower());
+	currentMaterial->setUniform("cameraPosition", cameraPosition);
 
-		currentMaterial->setUniform("Model", gameObject->getModelMatrix());
-		glActiveTexture(GL_TEXTURE0);
-		glBindTexture(GL_TEXTURE_2D, currentMaterial->getDiffuseMap());
-		currentMaterial->setUniform("texture0", 0);
+	currentMaterial->setUniform("Model", gameObject->getModelMatrix());
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, currentMaterial->getDiffuseMap());
+	currentMaterial->setUniform("texture0", 0);
 
-		glActiveTexture(GL_TEXTURE1);
-		glBindTexture(GL_TEXTURE_CUBE_MAP, currentMaterial->getEnvironmentMap());
-		currentMaterial->setUniform("cubeTexture", 1);
+	glActiveTexture(GL_TEXTURE1);
+	glBindTexture(GL_TEXTURE_CUBE_MAP, currentMaterial->getEnvironmentMap());
+	currentMaterial->setUniform("cubeTexture", 1);
 	glBindVertexArray(gameObject->getVertexArrayObject());
 
 	glDrawElements(GL_TRIANGLES, gameObject->getNumberOfIndices(), GL_UNSIGNED_INT, 0);
@@ -235,7 +201,6 @@ void renderGameObject(shared_ptr<GameObject> gameObject)
 		renderGameObject(gameObject->getChild(i));
 	}
 }
-
 
 void renderScene()
 {
@@ -254,16 +219,14 @@ void renderScene()
 		renderGameObject((*iter));
 	}
 	//Turn off depth Buffering
-
 	renderQueue.clear();
 }
 
 void render()
 {
-	renderScene();
 	//renderPostQuad();
+	renderScene();
 }
-
 
 int main(int argc, char * arg[])
 {
@@ -278,32 +241,25 @@ int main(int argc, char * arg[])
 
 		return -1;
 	}
-	//
+
 	int	imageInitFlags = IMG_INIT_JPG | IMG_INIT_PNG;
 	int	returnInitFlags = IMG_Init(imageInitFlags);
-	if (((returnInitFlags)&	(imageInitFlags)) != imageInitFlags)	{
+	if (((returnInitFlags)&	(imageInitFlags)) != imageInitFlags){
 
 		cout << "ERROR	SDL_Image	Init	" << IMG_GetError() << endl;
 	}
 
-	if (TTF_Init() == -1)	{
+	if (TTF_Init() == -1){
 		std::cout << "ERROR	TTF_Init:	" << TTF_GetError();
 	}
 
-	//Request opengl 4.1 context, Core Context
+	//Request opengl 3.1 context, Core Context
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
 	//Create a window
-	SDL_Window * window = SDL_CreateWindow(
-		"SDL",             // window title
-		SDL_WINDOWPOS_CENTERED,     // x position, centered
-		SDL_WINDOWPOS_CENTERED,     // y position, centered
-		640,                        // width, in pixels
-		480,                        // height, in pixels
-		SDL_WINDOW_OPENGL           // flags
-		);
+	SDL_Window * window = SDL_CreateWindow("SDL", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 480, SDL_WINDOW_OPENGL);
 
 	// Create an OpenGL context associated with the window.
 	SDL_GLContext glcontext = SDL_GL_CreateContext(window);
@@ -353,10 +309,9 @@ int main(int argc, char * arg[])
 					cameraPosition.z--;
 					cameraLookAt.z--;
 					break;
-		
+
 				default:
 					break;
-				
 				}
 			}
 		}
@@ -366,7 +321,6 @@ int main(int argc, char * arg[])
 		render();
 		//Call swap so that our GL back buffer is displayed
 		SDL_GL_SwapWindow(window);
-
 	}
 
 	// clean up, reverse order!!!
