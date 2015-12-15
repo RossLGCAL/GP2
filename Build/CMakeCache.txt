@@ -149,28 +149,28 @@ CMAKE_USE_RELATIVE_PATHS:BOOL=OFF
 CMAKE_VERBOSE_MAKEFILE:BOOL=OFF
 
 //Path to a file.
-FBX_INCLUDE_DIR:PATH=C:/Program Files/Autodesk/FBX/FBX SDK/2015.1/include
+FBX_INCLUDE_DIR:PATH=C:/Program Files/Autodesk/FBX/FBX SDK/2016.1/include
 
 //Path to a library.
-FBX_LIBRARY:FILEPATH=C:/Program Files/Autodesk/FBX/FBX SDK/2015.1/lib/vs2013/x64/release/libfbxsdk.lib
+FBX_LIBRARY:FILEPATH=C:/Program Files/Autodesk/FBX/FBX SDK/2016.1/lib/vs2013/x64/release/libfbxsdk.lib
 
 //Path to a library.
-FBX_LIBRARY_DEBUG:FILEPATH=C:/Program Files/Autodesk/FBX/FBX SDK/2015.1/lib/vs2013/x64/debug/libfbxsdk.lib
+FBX_LIBRARY_DEBUG:FILEPATH=FBX_LIBRARY_DEBUG-NOTFOUND
 
 //Path to a file.
-GLEW_INCLUDE_DIR:PATH=C:/Specialised Applications/glew-1.11.0/include
+GLEW_INCLUDE_DIR:PATH=C:/Users/Adam/Desktop/GP2Labs/glew-1.12.0/include
 
 //Path to a library.
-GLEW_LIBRARY:FILEPATH=C:/Specialised Applications/glew-1.11.0/lib/Release/x64/glew32.lib
+GLEW_LIBRARY:FILEPATH=C:/Users/Adam/Desktop/GP2Labs/glew-1.12.0/lib/Release/x64/glew32.lib
 
 //Path to a file.
-GLM_INCLUDE_DIR:PATH=C:/Specialised Applications/glm
+GLM_INCLUDE_DIR:PATH=C:/Users/Adam/Desktop/GP2Labs/glm
 
 //Value Computed by CMake
-GP2_BINARY_DIR:STATIC=C:/Users/auddin200/Documents/GitHub/GP2/Build
+GP2_BINARY_DIR:STATIC=C:/Users/Adam/Desktop/GP2Labs/GP2/Build
 
 //Value Computed by CMake
-GP2_SOURCE_DIR:STATIC=C:/Users/auddin200/Documents/GitHub/GP2
+GP2_SOURCE_DIR:STATIC=C:/Users/Adam/Desktop/GP2Labs/GP2
 
 //OpenGL library for win32
 OPENGL_gl_LIBRARY:STRING=opengl32
@@ -179,28 +179,28 @@ OPENGL_gl_LIBRARY:STRING=opengl32
 OPENGL_glu_LIBRARY:STRING=glu32
 
 //Path to a file.
-SDL2IMAGE_INCLUDE_DIR:PATH=C:/Specialised Applications/SDL2_image-2.0.0/include
+SDL2IMAGE_INCLUDE_DIR:PATH=C:/Users/Adam/Desktop/GP2Labs/SDL2_image-2.0.0/include
 
 //Path to a library.
-SDL2IMAGE_LIBRARY:FILEPATH=C:/Specialised Applications/SDL2_image-2.0.0/lib/x64/SDL2_image.lib
+SDL2IMAGE_LIBRARY:FILEPATH=C:/Users/Adam/Desktop/GP2Labs/SDL2_image-2.0.0/lib/x64/SDL2_image.lib
 
 //Path to a library.
-SDL2MAIN_LIBRARY:FILEPATH=C:/Specialised Applications/SDL2/lib/x64/SDL2main.lib
+SDL2MAIN_LIBRARY:FILEPATH=C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib
 
 //Path to a file.
-SDL2_INCLUDE_DIR:PATH=C:/Specialised Applications/SDL2/include
+SDL2_INCLUDE_DIR:PATH=C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/include
 
 //Where the SDL2 Library can be found
-SDL2_LIBRARY:STRING=C:/Specialised Applications/SDL2/lib/x64/SDL2main.lib;C:/Specialised Applications/SDL2/lib/x64/SDL2.lib
+SDL2_LIBRARY:STRING=C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2.lib
 
 //Path to a file.
-SDL2_TTF_INCLUDE_DIR:PATH=C:/Specialised Applications/SDL2_ttf-2.0.12/include
+SDL2_TTF_INCLUDE_DIR:PATH=C:/Users/Adam/Desktop/GP2Labs/SDL2_ttf-devel-2.0.12-VC/SDL2_ttf-2.0.12/include
 
 //Path to a library.
 SDL2_TTF_LIBRARY_DEBUG:FILEPATH=SDL2_TTF_LIBRARY_DEBUG-NOTFOUND
 
 //Path to a library.
-SDL2_TTF_LIBRARY_RELEASE:FILEPATH=C:/Specialised Applications/SDL2_ttf-2.0.12/lib/x64/SDL2_ttf.lib
+SDL2_TTF_LIBRARY_RELEASE:FILEPATH=C:/Users/Adam/Desktop/GP2Labs/SDL2_ttf-devel-2.0.12-VC/SDL2_ttf-2.0.12/lib/x64/SDL2_ttf.lib
 
 
 ########################
@@ -208,7 +208,7 @@ SDL2_TTF_LIBRARY_RELEASE:FILEPATH=C:/Specialised Applications/SDL2_ttf-2.0.12/li
 ########################
 
 //Stored GUID
-ALL_BUILD_GUID_CMAKE:INTERNAL=6836798B-45D5-45F3-A51F-1E38BD4D9AA1
+ALL_BUILD_GUID_CMAKE:INTERNAL=ABE4D065-89AE-4FB8-8E6F-4DF73355029B
 //This is the directory where this CMakeCache.txt was created
 CMAKE_CACHEFILE_DIR:INTERNAL=c:/Users/Adam/Desktop/GP2Labs/GP2/Build
 //Major version of cmake used to create the current loaded cache
@@ -271,7 +271,7 @@ CMAKE_GENERATOR_TOOLSET:INTERNAL=
 CMAKE_HAVE_PTHREAD_H:INTERNAL=
 //Source directory with the top level CMakeLists.txt file for this
 // project
-CMAKE_HOME_DIRECTORY:INTERNAL=C:/Users/auddin200/Documents/GitHub/GP2
+CMAKE_HOME_DIRECTORY:INTERNAL=C:/Users/Adam/Desktop/GP2Labs/GP2
 //ADVANCED property for variable: CMAKE_LINKER
 CMAKE_LINKER-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_MODULE_LINKER_FLAGS
@@ -325,13 +325,13 @@ CMAKE_USE_RELATIVE_PATHS-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding GLEW
-FIND_PACKAGE_MESSAGE_DETAILS_GLEW:INTERNAL=[C:/Specialised Applications/glew-1.11.0/include][C:/Specialised Applications/glew-1.11.0/lib/Release/x64/glew32.lib][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_GLEW:INTERNAL=[C:/Users/Adam/Desktop/GP2Labs/glew-1.12.0/include][C:/Users/Adam/Desktop/GP2Labs/glew-1.12.0/lib/Release/x64/glew32.lib][v()]
 //Details about finding GLM
-FIND_PACKAGE_MESSAGE_DETAILS_GLM:INTERNAL=[C:/Specialised Applications/glm][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_GLM:INTERNAL=[C:/Users/Adam/Desktop/GP2Labs/glm][v()]
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[opengl32][v()]
 //Details about finding SDL2
-FIND_PACKAGE_MESSAGE_DETAILS_SDL2:INTERNAL=[C:/Specialised Applications/SDL2/lib/x64/SDL2main.lib;C:/Specialised Applications/SDL2/lib/x64/SDL2.lib][C:/Specialised Applications/SDL2/include][v()]
+FIND_PACKAGE_MESSAGE_DETAILS_SDL2:INTERNAL=[C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2.lib][C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/include][v()]
 //Details about finding Threads
 FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //ADVANCED property for variable: GLEW_INCLUDE_DIR
@@ -339,12 +339,12 @@ GLEW_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GLEW_LIBRARY
 GLEW_LIBRARY-ADVANCED:INTERNAL=1
 //Stored GUID
-GP2_GUID_CMAKE:INTERNAL=F1D41318-E149-4DC8-9791-C4D544CF24E0
+GP2_GUID_CMAKE:INTERNAL=91181DA4-48A9-49F6-AA5D-FE4531594393
 //ADVANCED property for variable: OPENGL_gl_LIBRARY
 OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_glu_LIBRARY
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
-SDL2_LIBRARY_TEMP:INTERNAL=C:/Specialised Applications/SDL2/lib/x64/SDL2main.lib;C:/Specialised Applications/SDL2/lib/x64/SDL2main.lib;C:/Specialised Applications/SDL2/lib/x64/SDL2main.lib;C:/Specialised Applications/SDL2/lib/x64/SDL2main.lib;C:/Specialised Applications/SDL2/lib/x64/SDL2main.lib;C:/Specialised Applications/SDL2/lib/x64/SDL2main.lib;C:/Specialised Applications/SDL2/lib/x64/SDL2main.lib;C:/Specialised Applications/SDL2/lib/x64/SDL2main.lib;C:/Specialised Applications/SDL2/lib/x64/SDL2main.lib;C:/Specialised Applications/SDL2/lib/x64/SDL2main.lib;C:/Specialised Applications/SDL2/lib/x64/SDL2.lib
+SDL2_LIBRARY_TEMP:INTERNAL=C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2.lib
 //ADVANCED property for variable: SDL2_TTF_INCLUDE_DIR
 SDL2_TTF_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SDL2_TTF_LIBRARY_DEBUG
@@ -352,15 +352,15 @@ SDL2_TTF_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SDL2_TTF_LIBRARY_RELEASE
 SDL2_TTF_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //Stored GUID
-SG_Filter_CMake Rules_GUID_CMAKE:INTERNAL=E9F995A8-909F-4F2E-AA4B-D61FD0CAABBD
+SG_Filter_CMake Rules_GUID_CMAKE:INTERNAL=0280DAC4-DB08-4CDA-ACE8-646CD98C98BE
 //Stored GUID
-SG_Filter_Header Files_GUID_CMAKE:INTERNAL=60C1652C-AE3F-4F9F-A486-E33F78056F41
+SG_Filter_Header Files_GUID_CMAKE:INTERNAL=CC58380F-0355-4405-BCB2-27AD3E68788A
 //Stored GUID
-SG_Filter_Object Files_GUID_CMAKE:INTERNAL=F6D4E83D-2D49-41C4-A002-26F475EB930A
+SG_Filter_Object Files_GUID_CMAKE:INTERNAL=B43ED741-846D-4485-9A42-DAC9A004CE8F
 //Stored GUID
-SG_Filter_Resources_GUID_CMAKE:INTERNAL=2211A719-E37C-46ED-8E6E-41E58BFCB021
+SG_Filter_Resources_GUID_CMAKE:INTERNAL=1A522FB1-3E15-4095-93FB-62BF46AC09A4
 //Stored GUID
-SG_Filter_Source Files_GUID_CMAKE:INTERNAL=A7B52F84-ADB2-4A93-9877-4CDC2F749553
+SG_Filter_Source Files_GUID_CMAKE:INTERNAL=E8C29384-CB45-408E-9B8E-1703F71C3768
 //Stored GUID
-ZERO_CHECK_GUID_CMAKE:INTERNAL=6575794C-1B1B-4474-9205-58CC17502DD0
+ZERO_CHECK_GUID_CMAKE:INTERNAL=B3AE4D3C-C5CA-400F-8C8B-43A391A5A4AC
 

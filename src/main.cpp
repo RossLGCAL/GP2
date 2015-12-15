@@ -57,41 +57,41 @@ float frameTime;
 
 void initScene()
 {
-	currentTicks=SDL_GetTicks();
-	totalTime=0.0f;
+	currentTicks = SDL_GetTicks();
+	totalTime = 0.0f;
 
-	shared_ptr<Mesh> cubeMesh=shared_ptr<Mesh>(new Mesh);
-	cubeMesh->create(cubeVerts,numberOfCubeVerts,cubeIndices,numberOfCubeIndices);
+	shared_ptr<Mesh> cubeMesh = shared_ptr<Mesh>(new Mesh);
+	cubeMesh->create(cubeVerts, numberOfCubeVerts, cubeIndices, numberOfCubeIndices);
 
-	shared_ptr<Material> skyMaterial=shared_ptr<Material>(new Material);
-	string skyBoxFront=ASSET_PATH+TEXTURE_PATH+"/Skybox/galaxyft.png";
-	string skyBoxBack=ASSET_PATH+TEXTURE_PATH+"/Skybox/galaxybk.png";
-	string skyBoxLeft=ASSET_PATH+TEXTURE_PATH+"/Skybox/galaxylt.png";
-	string skyBoxRight=ASSET_PATH+TEXTURE_PATH+"/Skybox/galaxyrt.png";
-	string skyBoxUp=ASSET_PATH+TEXTURE_PATH+"/Skybox/galaxyup.png";
-	string skyBoxDown=ASSET_PATH+TEXTURE_PATH+"/Skybox/galaxydn.png";
-	skyMaterial->loadSkyBoxTextures(skyBoxFront,skyBoxBack,skyBoxLeft,skyBoxRight,skyBoxUp,skyBoxDown);
+	shared_ptr<Material> skyMaterial = shared_ptr<Material>(new Material);
+	string skyBoxFront = ASSET_PATH + TEXTURE_PATH + "/Skybox/galaxyft.png";
+	string skyBoxBack = ASSET_PATH + TEXTURE_PATH + "/Skybox/galaxybk.png";
+	string skyBoxLeft = ASSET_PATH + TEXTURE_PATH + "/Skybox/galaxylt.png";
+	string skyBoxRight = ASSET_PATH + TEXTURE_PATH + "/Skybox/galaxyrt.png";
+	string skyBoxUp = ASSET_PATH + TEXTURE_PATH + "/Skybox/galaxyup.png";
+	string skyBoxDown = ASSET_PATH + TEXTURE_PATH + "/Skybox/galaxydn.png";
+	skyMaterial->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
 
-	string vsPath=ASSET_PATH+SHADER_PATH+"/skyVS.glsl";
-	string fsPath=ASSET_PATH+SHADER_PATH+"/skyFS.glsl";
-	skyMaterial->loadShader(vsPath,fsPath);
-	skyBox=shared_ptr<GameObject>(new GameObject);
+	string vsPath = ASSET_PATH + SHADER_PATH + "/skyVS.glsl";
+	string fsPath = ASSET_PATH + SHADER_PATH + "/skyFS.glsl";
+	skyMaterial->loadShader(vsPath, fsPath);
+	skyBox = shared_ptr<GameObject>(new GameObject);
 	skyBox->setMesh(cubeMesh);
 	skyBox->setMaterial(skyMaterial);
 
 	skyBox->update();
 
-	string skullMeshPath=ASSET_PATH+MODEL_PATH+"/skull.fbx";
+	string skullMeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
 	shared_ptr<GameObject> skull = loadFBXFromFile(skullMeshPath);
-	skull->setScale(vec3(1.0f,1.0f,1.0f));
+	skull->setScale(vec3(1.0f, 1.0f, 1.0f));
 	skull->setPosition(skullPosition);
 	//skull->setRotation(skullRotation);
 	skull->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
-	shared_ptr<Material> skullMaterial=shared_ptr<Material>(new Material);
-	vsPath=ASSET_PATH+SHADER_PATH+"/specularReflectionVS.glsl";
-	fsPath=ASSET_PATH+SHADER_PATH+"/specularReflectionFS.glsl";
-	skullMaterial->loadShader(vsPath,fsPath);
-	skullMaterial->loadSkyBoxTextures(skyBoxFront,skyBoxBack,skyBoxLeft,skyBoxRight,skyBoxUp,skyBoxDown);
+	shared_ptr<Material> skullMaterial = shared_ptr<Material>(new Material);
+	vsPath = ASSET_PATH + SHADER_PATH + "/specularReflectionVS.glsl";
+	fsPath = ASSET_PATH + SHADER_PATH + "/specularReflectionFS.glsl";
+	skullMaterial->loadShader(vsPath, fsPath);
+	skullMaterial->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
 	skull->setMaterial(skullMaterial);
 	skull->update();
 
@@ -100,7 +100,7 @@ void initScene()
 	string skull2MeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
 	shared_ptr<GameObject> skull2 = loadFBXFromFile(skull2MeshPath);
 	skull2->setScale(vec3(1.0f, 1.0f, 1.0f));
-	skullPosition2.x = skullPosition.x+10.0f;
+	skullPosition2.x = skullPosition.x + 10.0f;
 	skull2->setPosition(skullPosition2);
 	//skull2->setRotation(skullRotation);
 	skull2->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
