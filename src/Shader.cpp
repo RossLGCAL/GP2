@@ -18,7 +18,7 @@ GLuint loadShaderFromFile(const std::string& filename, SHADER_TYPE shaderType)
   if (!file)
   {
 	  cout << "File could not be loaded" << endl;
-    return 0;
+      return 0;
   }
 
   //calculate file size
@@ -79,5 +79,6 @@ bool checkForLinkErrors(GLuint program)
     glDeleteProgram(program);
     return true;
   }
+
   return false;
 }

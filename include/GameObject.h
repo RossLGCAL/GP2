@@ -13,9 +13,7 @@ public:
 	~GameObject();
 
 	void update();
-
 	void addChild(shared_ptr<GameObject> child);
-
 	void createBuffers(Vertex * pVerts, int numVerts, int *pIndices, int numIndices);
 	void loadShader(const string& vsFilename, const string& fsFilename);
 	void loadDiffuseMap(const string& filename);

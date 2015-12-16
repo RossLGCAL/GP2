@@ -7,39 +7,37 @@ void PrintTabs() {
 		printf("\t");
 }
 
-/**
-* Return a string-based representation based on the attribute type.
-*/
+//Return a string-based representation based on the attribute type.
 FbxString GetAttributeTypeName(FbxNodeAttribute::EType type) {
 	switch (type) {
-	case FbxNodeAttribute::eUnknown: return "unidentified";
-	case FbxNodeAttribute::eNull: return "null";
-	case FbxNodeAttribute::eMarker: return "marker";
-	case FbxNodeAttribute::eSkeleton: return "skeleton";
-	case FbxNodeAttribute::eMesh: return "mesh";
-	case FbxNodeAttribute::eNurbs: return "nurbs";
-	case FbxNodeAttribute::ePatch: return "patch";
-	case FbxNodeAttribute::eCamera: return "camera";
-	case FbxNodeAttribute::eCameraStereo: return "stereo";
-	case FbxNodeAttribute::eCameraSwitcher: return "camera switcher";
-	case FbxNodeAttribute::eLight: return "light";
-	case FbxNodeAttribute::eOpticalReference: return "optical reference";
-	case FbxNodeAttribute::eOpticalMarker: return "marker";
-	case FbxNodeAttribute::eNurbsCurve: return "nurbs curve";
-	case FbxNodeAttribute::eTrimNurbsSurface: return "trim nurbs surface";
-	case FbxNodeAttribute::eBoundary: return "boundary";
-	case FbxNodeAttribute::eNurbsSurface: return "nurbs surface";
-	case FbxNodeAttribute::eShape: return "shape";
-	case FbxNodeAttribute::eLODGroup: return "lodgroup";
-	case FbxNodeAttribute::eSubDiv: return "subdiv";
-	default: return "unknown";
+		case FbxNodeAttribute::eUnknown: return "unidentified";
+		case FbxNodeAttribute::eNull: return "null";
+		case FbxNodeAttribute::eMarker: return "marker";
+		case FbxNodeAttribute::eSkeleton: return "skeleton";
+		case FbxNodeAttribute::eMesh: return "mesh";
+		case FbxNodeAttribute::eNurbs: return "nurbs";
+		case FbxNodeAttribute::ePatch: return "patch";
+		case FbxNodeAttribute::eCamera: return "camera";
+		case FbxNodeAttribute::eCameraStereo: return "stereo";
+		case FbxNodeAttribute::eCameraSwitcher: return "camera switcher";
+		case FbxNodeAttribute::eLight: return "light";
+		case FbxNodeAttribute::eOpticalReference: return "optical reference";
+		case FbxNodeAttribute::eOpticalMarker: return "marker";
+		case FbxNodeAttribute::eNurbsCurve: return "nurbs curve";
+		case FbxNodeAttribute::eTrimNurbsSurface: return "trim nurbs surface";
+		case FbxNodeAttribute::eBoundary: return "boundary";
+		case FbxNodeAttribute::eNurbsSurface: return "nurbs surface";
+		case FbxNodeAttribute::eShape: return "shape";
+		case FbxNodeAttribute::eLODGroup: return "lodgroup";
+		case FbxNodeAttribute::eSubDiv: return "subdiv";
+		default: return "unknown";
 	}
 }
 
 shared_ptr<GameObject> loadFBXFromFile(const string& filename)
 {
 	shared_ptr<GameObject> gameObject = shared_ptr<GameObject>(new GameObject);
-  level = 0;
+	level = 0;
 	// Initialize the SDK manager. This object handles memory management.
 	FbxManager* lSdkManager = FbxManager::Create();
 
@@ -65,8 +63,6 @@ shared_ptr<GameObject> loadFBXFromFile(const string& filename)
 	lGeomConverter.Triangulate(lScene, /*replace*/true);
 	
 	// Print the nodes of the scene and their attributes recursively.
-	// Note that we are not printing the root node because it should
-	// not contain any attributes.
 	FbxNode* lRootNode = lScene->GetRootNode();
 	if (lRootNode) {
 		cout << "Root Node " << lRootNode->GetName() << endl;
@@ -119,15 +115,14 @@ void processAttribute(FbxNodeAttribute * attribute, shared_ptr<GameObject> gameO
 	PrintTabs();
 	cout << "Attribute " << typeName.Buffer() << " Name " << attrName << endl;
 	switch (attribute->GetAttributeType()) {
-	case FbxNodeAttribute::eMesh: processMesh(attribute->GetNode()->GetMesh(), gameObject);
-	case FbxNodeAttribute::eCamera: return;
-	case FbxNodeAttribute::eLight: return;
+		case FbxNodeAttribute::eMesh: processMesh(attribute->GetNode()->GetMesh(), gameObject);
+		case FbxNodeAttribute::eCamera: return;
+		case FbxNodeAttribute::eLight: return;
 	}
 }
 
 void processMesh(FbxMesh * mesh, shared_ptr<GameObject> gameObject)
 {
-
 	int numVerts = mesh->GetControlPointsCount();
 	int numIndices = mesh->GetPolygonVertexCount();
 
@@ -150,14 +145,12 @@ void processMesh(FbxMesh * mesh, shared_ptr<GameObject> gameObject)
 
 	cout << "Vertices " << numVerts << " Indices " << numIndices << endl;
 
-
 	if (pVerts)
 	{
 		delete[] pVerts;
 		pVerts = NULL;
 	}
 }
-
 
 void processMeshTextureCoords(FbxMesh * mesh, Vertex * verts, int numVerts)
 {

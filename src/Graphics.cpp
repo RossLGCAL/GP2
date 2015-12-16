@@ -5,7 +5,6 @@
 string getRendererCapsAsString()
 {
 	stringstream stringStream;
-
 	stringStream << "OpenGl Version: " << glGetString(GL_VERSION)<<"\n";
 	stringStream << "Vendor: " << glGetString(GL_VENDOR) << "\n";
 	stringStream << "Renderer: " << glGetString(GL_RENDERER) << "\n";
@@ -15,11 +14,9 @@ string getRendererCapsAsString()
 	glGetIntegerv(GL_NUM_EXTENSIONS, &n);
 	for(GLint i = 0; i<n; i++)
 	{
-		const char* extension =
-			(const char*)glGetStringi(GL_EXTENSIONS, i);
+		const char* extension = (const char*)glGetStringi(GL_EXTENSIONS, i);
 		stringStream << extension << ", ";
 	}
-
 	return stringStream.str();
 }
 
@@ -50,7 +47,6 @@ void initOpenGL()
 
     //The depth test to go
     glDepthFunc( GL_LEQUAL );
-
 }
 
 //Function to set/reset viewport

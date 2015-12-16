@@ -1,8 +1,8 @@
-﻿Build started 16/12/2015 00:20:07.
-     1>Project "C:\Users\Adam\Desktop\GP2Labs\GP2\Build\GP2.vcxproj" on node 2 (Build target(s)).
+﻿Build started 16/12/2015 03:31:09.
+     1>Project "C:\Users\Connall\Documents\GitHub\GP2\Build\GP2.vcxproj" on node 2 (Build target(s)).
      1>PreBuildEvent:
          setlocal
-         "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy_directory C:/Users/Adam/Desktop/GP2Labs/GP2/assets C:/Users/Adam/Desktop/GP2Labs/GP2/Build/Debug/assets
+         "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy_directory C:/Users/Connall/Documents/GitHub/GP2/assets C:/Users/Connall/Documents/GitHub/GP2/Build/Debug/assets
          if %errorlevel% neq 0 goto :cmEnd
          :cmEnd
          endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -12,7 +12,7 @@
          if %errorlevel% neq 0 goto :VCEnd
          :VCEnd
        ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Adam\Desktop\GP2Labs\GP2\GP2 /IC:\Users\Adam\Desktop\GP2Labs\GP2\include /I"C:\Users\Adam\Desktop\GP2Labs\SDL2-2.0.3\include" /I"C:\Users\Adam\Desktop\GP2Labs\glew-1.12.0\include" /IC:\Users\Adam\Desktop\GP2Labs\glm /I"C:\Users\Adam\Desktop\GP2Labs\SDL2_image-2.0.0\include" /I"C:\Users\Adam\Desktop\GP2Labs\SDL2_ttf-devel-2.0.12-VC\SDL2_ttf-2.0.12\include" /I"C:\Program Files\Autodesk\FBX\FBX SDK\2016.1\include" /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"GP2.dir\Debug\\" /Fd"GP2.dir\Debug\vc120.pdb" /Gd /TP /errorReport:prompt  /EHsc";"-std=c++0x C:\Users\Adam\Desktop\GP2Labs\GP2\src\main.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /IC:\Users\Connall\Documents\GitHub\GP2\GP2 /IC:\Users\Connall\Documents\GitHub\GP2\include /I"C:\Users\Connall\Desktop\GP2\SDL2-devel-2.0.3-VC\SDL2-2.0.3\include" /I"C:\Users\Connall\Desktop\GP2\glew-1.12.0-win32\glew-1.12.0\include" /I"C:\Users\Connall\Desktop\GP2\glm-0.9.7.0\glm" /I"C:\Users\Connall\Desktop\GP2\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\include" /I"C:\Users\Connall\Desktop\GP2\SDL2_ttf-2.0.12\include" /I"C:\Program Files\Autodesk\FBX\FBX SDK\2016.1\include" /Zi /nologo /W3 /WX- /Od /Ob0 /D WIN32 /D _WINDOWS /D WIN32 /D _WINDOWS /D _DEBUG /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /GR /Fo"GP2.dir\Debug\\" /Fd"GP2.dir\Debug\vc120.pdb" /Gd /TP /errorReport:prompt  /EHsc";"-std=c++0x C:\Users\Connall\Documents\GitHub\GP2\src\FBXLoader.cpp C:\Users\Connall\Documents\GitHub\GP2\src\GameObject.cpp C:\Users\Connall\Documents\GitHub\GP2\src\Graphics.cpp C:\Users\Connall\Documents\GitHub\GP2\src\Material.cpp C:\Users\Connall\Documents\GitHub\GP2\src\Mesh.cpp C:\Users\Connall\Documents\GitHub\GP2\src\Shader.cpp C:\Users\Connall\Documents\GitHub\GP2\src\Texture.cpp C:\Users\Connall\Documents\GitHub\GP2\src\main.cpp
      1>cl : Command line warning D9002: ignoring unknown option '/EH;'
      1>cl : Command line warning D9002: ignoring unknown option '/EH-'
      1>cl : Command line warning D9002: ignoring unknown option '/EHt'
@@ -22,11 +22,27 @@
      1>cl : Command line warning D9002: ignoring unknown option '/EH+'
      1>cl : Command line warning D9002: ignoring unknown option '/EH0'
      1>cl : Command line warning D9002: ignoring unknown option '/EHx'
+         FBXLoader.cpp
+     1>c:\users\connall\documents\github\gp2\include\GameObject.h(43): warning C4267: 'return' : conversion from 'size_t' to 'int', possible loss of data
+     1>C:\Users\Connall\Documents\GitHub\GP2\src\FBXLoader.cpp(177): warning C4244: '=' : conversion from 'fbxsdk::FbxDouble' to 'float', possible loss of data
+     1>C:\Users\Connall\Documents\GitHub\GP2\src\FBXLoader.cpp(178): warning C4244: '=' : conversion from 'fbxsdk::FbxDouble' to 'float', possible loss of data
+     1>C:\Users\Connall\Documents\GitHub\GP2\src\FBXLoader.cpp(192): warning C4244: '=' : conversion from 'fbxsdk::FbxDouble' to 'float', possible loss of data
+     1>C:\Users\Connall\Documents\GitHub\GP2\src\FBXLoader.cpp(193): warning C4244: '=' : conversion from 'fbxsdk::FbxDouble' to 'float', possible loss of data
+     1>C:\Users\Connall\Documents\GitHub\GP2\src\FBXLoader.cpp(194): warning C4244: '=' : conversion from 'fbxsdk::FbxDouble' to 'float', possible loss of data
+         GameObject.cpp
+     1>C:\Users\Connall\Documents\GitHub\GP2\include\GameObject.h(43): warning C4267: 'return' : conversion from 'size_t' to 'int', possible loss of data
+         Graphics.cpp
+         Material.cpp
+         Mesh.cpp
+         Shader.cpp
+     1>C:\Users\Connall\Documents\GitHub\GP2\src\Shader.cpp(28): warning C4244: 'initializing' : conversion from 'std::streamoff' to 'unsigned long', possible loss of data
+         Texture.cpp
          main.cpp
-     1>c:\users\adam\desktop\gp2labs\gp2\include\GameObject.h(45): warning C4267: 'return' : conversion from 'size_t' to 'int', possible loss of data
-     1>C:\Users\Adam\Desktop\GP2Labs\GP2\src\main.cpp(180): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\connall\documents\github\gp2\include\GameObject.h(43): warning C4267: 'return' : conversion from 'size_t' to 'int', possible loss of data
+     1>C:\Users\Connall\Documents\GitHub\GP2\src\main.cpp(181): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+         Generating Code...
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Adam\Desktop\GP2Labs\GP2\Build\Debug\GP2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\Users\Adam\Desktop\GP2Labs\SDL2-2.0.3\lib\x64\SDL2main.lib" "C:\Users\Adam\Desktop\GP2Labs\SDL2-2.0.3\lib\x64\SDL2.lib" glu32.lib opengl32.lib "C:\Users\Adam\Desktop\GP2Labs\glew-1.12.0\lib\Release\x64\glew32.lib" "C:\Users\Adam\Desktop\GP2Labs\SDL2_image-2.0.0\lib\x64\SDL2_image.lib" "C:\Users\Adam\Desktop\GP2Labs\SDL2_ttf-devel-2.0.12-VC\SDL2_ttf-2.0.12\lib\x64\SDL2_ttf.lib" "C:\Program Files\Autodesk\FBX\FBX SDK\2016.1\lib\vs2013\x64\release\libfbxsdk.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Adam/Desktop/GP2Labs/GP2/Build/Debug/GP2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Adam/Desktop/GP2Labs/GP2/Build/Debug/GP2.lib" /MACHINE:X64  /machine:x64 /debug GP2.dir\Debug\main.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Connall\Documents\GitHub\GP2\Build\Debug\GP2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\Users\Connall\Desktop\GP2\SDL2-devel-2.0.3-VC\SDL2-2.0.3\lib\x64\SDL2main.lib" "C:\Users\Connall\Desktop\GP2\SDL2-devel-2.0.3-VC\SDL2-2.0.3\lib\x64\SDL2.lib" glu32.lib opengl32.lib "C:\Users\Connall\Desktop\GP2\glew-1.12.0-win32\glew-1.12.0\lib\Release\x64\glew32.lib" "C:\Users\Connall\Desktop\GP2\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\lib\x64\SDL2_image.lib" "C:\Users\Connall\Desktop\GP2\SDL2_ttf-2.0.12\lib\x64\SDL2_ttf.lib" "C:\Program Files\Autodesk\FBX\FBX SDK\2016.1\lib\vs2013\x64\release\libfbxsdk.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Connall/Documents/GitHub/GP2/Build/Debug/GP2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Connall/Documents/GitHub/GP2/Build/Debug/GP2.lib" /MACHINE:X64  /machine:x64 /debug GP2.dir\Debug\main.obj
          GP2.dir\Debug\Graphics.obj
          GP2.dir\Debug\Shader.obj
          GP2.dir\Debug\Texture.obj
@@ -35,10 +51,10 @@
          GP2.dir\Debug\GameObject.obj
          GP2.dir\Debug\Mesh.obj
          GP2.dir\Debug\Material.obj
-         GP2.vcxproj -> C:\Users\Adam\Desktop\GP2Labs\GP2\Build\Debug\GP2.exe
+         GP2.vcxproj -> C:\Users\Connall\Documents\GitHub\GP2\Build\Debug\GP2.exe
        PostBuildEvent:
          setlocal
-         "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy_directory C:/Users/Adam/Desktop/GP2Labs/GP2/dlls C:/Users/Adam/Desktop/GP2Labs/GP2/Build/Debug
+         "C:\Program Files (x86)\CMake\bin\cmake.exe" -E copy_directory C:/Users/Connall/Documents/GitHub/GP2/dlls C:/Users/Connall/Documents/GitHub/GP2/Build/Debug
          if %errorlevel% neq 0 goto :cmEnd
          :cmEnd
          endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
@@ -47,8 +63,8 @@
          :cmDone
          if %errorlevel% neq 0 goto :VCEnd
          :VCEnd
-     1>Done Building Project "C:\Users\Adam\Desktop\GP2Labs\GP2\Build\GP2.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\Connall\Documents\GitHub\GP2\Build\GP2.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:02.39
+Time Elapsed 00:00:26.53

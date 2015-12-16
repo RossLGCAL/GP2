@@ -4,13 +4,10 @@ GLuint	loadTextureFromFile(const string&	filename)
 {
 	SDL_Surface	*imageSurface = IMG_Load(filename.c_str());
 	if (!imageSurface){
-
 		cout << "Can't Load	image " << filename << " " << IMG_GetError();
 		return	0;
 	}
-
 	GLuint textureID = convertSDLSurfaceToTexture(imageSurface);
-	//SDL_FreeSurface(imageSurface);
 
 	return textureID;
 }
@@ -36,12 +33,12 @@ GLuint	loadTextureFromFont(const string& fontFilename, int	pointSize, const stri
 GLuint convertSDLSurfaceToTexture(SDL_Surface * surface)
 {
 	GLuint textureID = 0;
-	GLint		nOfColors = surface->format->BytesPerPixel;
+	GLint  nOfColors = surface->format->BytesPerPixel;
 
 	GLenum	textureFormat = GL_RGB;
 	GLenum	internalFormat = GL_RGB8;
 
-	if (nOfColors == 4)					//	contains	an	alpha	channel
+	if (nOfColors == 4)	//	contains	an	alpha	channel
 	{
 		if (surface->format->Rmask == 0x000000ff){
 			textureFormat = GL_RGBA;
@@ -52,7 +49,7 @@ GLuint convertSDLSurfaceToTexture(SDL_Surface * surface)
 			internalFormat = GL_RGBA8;
 		}
 	}
-	else if (nOfColors == 3)					//	no	alpha	channel
+	else if (nOfColors == 3) //	no	alpha	channel
 	{
 		if (surface->format->Rmask == 0x000000ff){
 			textureFormat = GL_RGB;
@@ -71,9 +68,7 @@ GLuint convertSDLSurfaceToTexture(SDL_Surface * surface)
 	glGenTextures(1, &textureID);
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, textureID);
-	glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, surface->w, surface->h, 0, textureFormat,
-		GL_UNSIGNED_BYTE, surface->pixels);
-
+	glTexImage2D(GL_TEXTURE_2D, 0, internalFormat, surface->w, surface->h, 0, textureFormat, GL_UNSIGNED_BYTE, surface->pixels);
 	return textureID;
 }
 
@@ -81,7 +76,6 @@ void loadCubeMapFace(const string& filename, GLenum face)
 {
 	SDL_Surface	*imageSurface = IMG_Load(filename.c_str());
 	if (!imageSurface){
-
 		cout << "Can't Load	image " << filename << " " << IMG_GetError();
 	}
 
@@ -90,7 +84,7 @@ void loadCubeMapFace(const string& filename, GLenum face)
 	GLenum	textureFormat = GL_RGB;
 	GLenum	internalFormat = GL_RGB8;
 
-	if (nOfColors == 4)					//	contains	an	alpha	channel
+	if (nOfColors == 4)	//	contains	an	alpha	channel
 	{
 		if (imageSurface->format->Rmask == 0x000000ff){
 			textureFormat = GL_RGBA;
@@ -101,7 +95,7 @@ void loadCubeMapFace(const string& filename, GLenum face)
 			internalFormat = GL_RGBA8;
 		}
 	}
-	else if (nOfColors == 3)					//	no	alpha	channel
+	else if (nOfColors == 3) //	no	alpha	channel
 	{
 		if (imageSurface->format->Rmask == 0x000000ff){
 			textureFormat = GL_RGB;
@@ -113,16 +107,14 @@ void loadCubeMapFace(const string& filename, GLenum face)
 		}
 	}
 	else{
-		cout << "warning: the image is not truecolor.. this will	probably break";
+		cout << "warning: the image is not truecolor.. this will probably break";
 	}
-	glTexImage2D(face, 0, internalFormat, imageSurface->w, imageSurface->h, 0, textureFormat,
-		GL_UNSIGNED_BYTE, imageSurface->pixels);
+	glTexImage2D(face, 0, internalFormat, imageSurface->w, imageSurface->h, 0, textureFormat, GL_UNSIGNED_BYTE, imageSurface->pixels);
 
 	SDL_FreeSurface(imageSurface);
 }
 
-GLuint loadCubeTexture(const string& filenamePosZ, const string& filenameNegZ, const string& filenamePosX,
-  const string& filenameNegX, const string& filenamePosY, const string& filenameNegY)
+GLuint loadCubeTexture(const string& filenamePosZ, const string& filenameNegZ, const string& filenamePosX, const string& filenameNegX, const string& filenamePosY, const string& filenameNegY)
 {
 	GLuint cubeTextureID;
 	glActiveTexture(GL_TEXTURE1);

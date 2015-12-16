@@ -15,11 +15,8 @@ public:
   };
 
   void loadShader(const string& vsFilename, const string& fsFilename);
-
   void loadDiffuseMap(const string& filename);
-
-  void loadSkyBoxTextures(const string& filenamePosZ, const string& filenameNegZ, const string& filenamePosX,
-    const string& filenameNegX, const string& filenamePosY, const string& filenameNegY);
+  void loadSkyBoxTextures(const string& filenamePosZ, const string& filenameNegZ, const string& filenamePosX, const string& filenameNegX, const string& filenamePosY, const string& filenameNegY);
 
   vec4& getAmbientMaterial()
   {

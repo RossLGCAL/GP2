@@ -2,7 +2,7 @@
 
 Mesh::Mesh()
 {
-  m_VBO=0;
+    m_VBO=0;
 	m_EBO=0;
 	m_VAO=0;
 	m_NoOfIndices=0;
@@ -11,14 +11,14 @@ Mesh::Mesh()
 
 Mesh::~Mesh()
 {
-  glDeleteBuffers(1, &m_VBO);
+    glDeleteBuffers(1, &m_VBO);
 	glDeleteBuffers(1, &m_EBO);
 	glDeleteVertexArrays(1, &m_VAO);
 }
 
 void Mesh::create(Vertex * pVerts, int numVerts, int *pIndices, int numIndices)
 {
-  m_NoOfIndices = numIndices;
+    m_NoOfIndices = numIndices;
 	m_NoOfVertices = numVerts;
 
 	//Generate Vertex Array
