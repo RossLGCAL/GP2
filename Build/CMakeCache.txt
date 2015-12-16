@@ -346,7 +346,7 @@ GP2_GUID_CMAKE:INTERNAL=F61F87DE-19C5-44F2-89A3-47CC933DA122
 OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_glu_LIBRARY
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
-SDL2_LIBRARY_TEMP:INTERNAL=C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2.lib
+SDL2_LIBRARY_TEMP:INTERNAL=C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2.lib
 //ADVANCED property for variable: SDL2_TTF_INCLUDE_DIR
 SDL2_TTF_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SDL2_TTF_LIBRARY_DEBUG
