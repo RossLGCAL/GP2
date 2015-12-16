@@ -9,6 +9,14 @@
 #include "GameObject.h"
 #include "Cube.h"
 
+//mouse movement
+int mouseX, mouseY;
+float vAngle = 0;
+float hAngle = 3.14f;
+float mSpeed = 0.01f;
+float speed = 2;
+vec3 rightVector;
+
 //matrices
 mat4 viewMatrix;
 mat4 projMatrix;
@@ -54,6 +62,27 @@ float totalTime;
 int frameCounter=0;
 float FPS;
 float frameTime;
+
+void mouseMovement()
+{
+	SDL_GetMouseState(&mouseX, &mouseY);
+	hAngle += mSpeed * float(FRAME_BUFFER_WIDTH / 2 - mouseX);
+	if (degrees(hAngle) > 360.0f)
+	{
+		hAngle = radians(0.0f);
+	}
+	else if (degrees(hAngle) < 0.0f)
+	{
+		hAngle = radians(360.0f);
+	}
+	vAngle += mSpeed * float(FRAME_BUFFER_HEIGHT / 2 - mouseY);
+	if (degrees(vAngle) >= 90.0f)
+	{
+		vAngle = radians(-89.9f);
+	}
+	cameraLookAt = vec3(cos(vAngle)*sin(hAngle), sin(vAngle), cos(vAngle)*cos(hAngle));
+	rightVector = vec3(sin(hAngle - 3.14 / 2), 0, cos(hAngle - 3.14 / 2));
+}
 
 void initScene()
 {
@@ -111,6 +140,7 @@ void initScene()
 	skull2->update();
 
 	gameObjects.push_back(skull2);
+	SDL_ShowCursor(0);
 }
 
 void cleanUp()
@@ -142,7 +172,7 @@ void update()
 
 	projMatrix = perspective(45.0f, 640.0f / 480.0f, 0.1f, 100.0f);
 
-	viewMatrix = lookAt(cameraPosition, cameraLookAt, vec3(0.0f, 1.0f, 0.0f));
+	viewMatrix = lookAt(cameraPosition, cameraLookAt + cameraPosition, vec3(0.0f, 1.0f, 0.0f));
 
 
 	for (auto iter = gameObjects.begin(); iter != gameObjects.end(); iter++)
@@ -288,38 +318,36 @@ int main(int argc, char * arg[])
 			if (event.type == SDL_KEYDOWN){
 				switch (event.key.keysym.sym)
 				{
-				case SDLK_LEFT:
-					cameraPosition.x--;
-					cameraLookAt.x--;
+				case SDLK_a:
+					cameraPosition -= rightVector * speed;
+					cout << "left" << endl;
 					break;
-				case SDLK_RIGHT:
-					cameraPosition.x++;
-					cameraLookAt.x++;
+				case SDLK_d:
+					cameraPosition += rightVector * speed;
+					cout << "right" << endl;
 					break;
-				case SDLK_UP:
-					cameraPosition.y++;
-					cameraLookAt.y++;
+				case SDLK_w:
+					cameraPosition += cameraLookAt * speed;
+					cout << "in" << endl;
 					break;
-				case SDLK_DOWN:
-					cameraPosition.y--;
-					cameraLookAt.y--;
+				case SDLK_s:
+					cameraPosition -= cameraLookAt * speed;
+					cout << "out" << endl;
 					break;
-				case SDLK_RCTRL:
-					cameraPosition.z++;
-					cameraLookAt.z++;
+				case SDLK_SPACE:
 					break;
-				case SDLK_LCTRL:
-					cameraPosition.z--;
-					cameraLookAt.z--;
+				case SDLK_ESCAPE:
+					cout << "exit" << endl;
+					run = false;
 					break;
-		
 				default:
 					break;
-				
 				}
 			}
 		}
 		//init Scene
+		mouseMovement();
+		SDL_WarpMouseInWindow(window, FRAME_BUFFER_WIDTH / 2, FRAME_BUFFER_HEIGHT / 2);
 		update();
 		//render
 		render();
