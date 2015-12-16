@@ -424,6 +424,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClInclude Include="C:\Users\Adam\Desktop\GP2Labs\GP2\include\GameObject.h" />
     <ClInclude Include="C:\Users\Adam\Desktop\GP2Labs\GP2\include\Cube.h" />
     <ClInclude Include="C:\Users\Adam\Desktop\GP2Labs\GP2\include\Material.h" />
+    <ClInclude Include="C:\Users\Adam\Desktop\GP2Labs\GP2\include\OutlineMaterial.h" />
+    <ClInclude Include="C:\Users\Adam\Desktop\GP2Labs\GP2\include\ToonMaterial.h" />
     <ClCompile Include="C:\Users\Adam\Desktop\GP2Labs\GP2\src\main.cpp"  />
     <ClCompile Include="C:\Users\Adam\Desktop\GP2Labs\GP2\src\Graphics.cpp"  />
     <ClCompile Include="C:\Users\Adam\Desktop\GP2Labs\GP2\src\Shader.cpp"  />
@@ -433,6 +435,8 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
     <ClCompile Include="C:\Users\Adam\Desktop\GP2Labs\GP2\src\GameObject.cpp"  />
     <ClCompile Include="C:\Users\Adam\Desktop\GP2Labs\GP2\src\Mesh.cpp"  />
     <ClCompile Include="C:\Users\Adam\Desktop\GP2Labs\GP2\src\Material.cpp"  />
+    <ClCompile Include="C:\Users\Adam\Desktop\GP2Labs\GP2\src\OutlineMaterial.cpp"  />
+    <ClCompile Include="C:\Users\Adam\Desktop\GP2Labs\GP2\src\ToonMaterial.cpp"  />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="C:/Users/Adam/Desktop/GP2Labs/GP2/Build/ZERO_CHECK.vcxproj">

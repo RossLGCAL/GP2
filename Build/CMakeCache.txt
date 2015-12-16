@@ -344,7 +344,7 @@ GP2_GUID_CMAKE:INTERNAL=91181DA4-48A9-49F6-AA5D-FE4531594393
 OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_glu_LIBRARY
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
-SDL2_LIBRARY_TEMP:INTERNAL=C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2.lib
+SDL2_LIBRARY_TEMP:INTERNAL=C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Adam/Desktop/GP2Labs/SDL2-2.0.3/lib/x64/SDL2.lib
 //ADVANCED property for variable: SDL2_TTF_INCLUDE_DIR
 SDL2_TTF_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SDL2_TTF_LIBRARY_DEBUG

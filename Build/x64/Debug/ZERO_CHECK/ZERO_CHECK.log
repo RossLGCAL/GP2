@@ -1,5 +1,10 @@
-﻿Build started 09/12/2015 20:22:02.
+﻿Build started 16/12/2015 02:46:13.
+     1>Project "C:\Users\Adam\Desktop\GP2Labs\GP2\Build\ZERO_CHECK.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         Checking Build System
+         CMake does not need to re-run because C:/Users/Adam/Desktop/GP2Labs/GP2/Build/CMakeFiles/generate.stamp is up-to-date.
+     1>Done Building Project "C:\Users\Adam\Desktop\GP2Labs\GP2\Build\ZERO_CHECK.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.02
+Time Elapsed 00:00:00.10

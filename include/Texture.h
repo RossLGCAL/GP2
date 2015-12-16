@@ -12,6 +12,8 @@
 
 	GLuint convertSDLSurfaceToTexture(SDL_Surface * surface);
 
+	GLuint create1DTexture(float *pData, int width);
+
 	void loadCubeMapFace(const string& filename, GLenum face);
 
 #endif

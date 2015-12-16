@@ -8,6 +8,9 @@
 #include "FileSystem.h"
 #include "GameObject.h"
 #include "Cube.h"
+#include "OutlineMaterial.h"
+#include "ToonMaterial.h"
+
 
 //matrices
 mat4 viewMatrix;
@@ -38,6 +41,7 @@ vec3 skullPosition = vec3(0.0f, -3.0f, 0.0f);
 vec3 skullPosition2 = vec3(0.0f, -3.0f, 0.0f);
 vec3 skullPosition3 = vec3(0.0f, -3.0f, 0.0f);
 vec3 skullPosition4 = vec3(0.0f, -3.0f, 0.0f);
+vec3 sPosition = vec3(0.0f, -3.0f, 0.0f);
 //vec3 skullRotation = vec3(0.7f, 0.0f, 0.0f);
 
 //for Framebuffer
@@ -83,7 +87,7 @@ void initScene()
 	skyBox->setMaterial(skyMaterial);
 
 	skyBox->update();
-
+	
 	string skullMeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
 	shared_ptr<GameObject> skull = loadFBXFromFile(skullMeshPath);
 	skull->setScale(vec3(1.0f, 1.0f, 1.0f));
@@ -108,12 +112,14 @@ void initScene()
 	//skull2->setRotation(skullRotation);
 	skull2->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
 	shared_ptr<Material> skull2Material = shared_ptr<Material>(new Material);
-	skull2Material->loadShader(vsPath, fsPath);
+	string fsPath1 = ASSET_PATH + SHADER_PATH + "/textureFS.glsl";
+	string vsPath1 = ASSET_PATH + SHADER_PATH + "/textureVS.glsl";
+	skull2Material->loadShader(vsPath1, fsPath1);
 
-	skull2Material->loadDiffuseMap(ASSET_PATH + TEXTURE_PATH + "/texture.png");
+	skull2Material->loadDiffuseMap(ASSET_PATH + TEXTURE_PATH + "/spooky.png");
 
-	skull2Material->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
-	skull2Material->setDiffuseMaterial(vec4(1.0f,0.5f,0.0f,1.0f));
+	//skull2Material->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
+	//skull2Material->setDiffuseMaterial(vec4(1.0f,0.5f,0.0f,1.0f));
 	skull2->setMaterial(skull2Material);
 	skull2->update();
 
@@ -140,26 +146,67 @@ void initScene()
 
 	gameObjects.push_back(skull3);
 
-	string skull4MeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
-	shared_ptr<GameObject> skull4 = loadFBXFromFile(skull4MeshPath);
-	skull4->setScale(vec3(1.0f, 1.0f, 1.0f));
+
+
+	/*string skull4MeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
+	shared_ptr<GameObject> skull4outline = loadFBXFromFile(skull4MeshPath);
+	skull4outline->setScale(vec3(0.9f, 1.1f, 1.0f));
 	skullPosition4.x = skullPosition.x + 30.0f;
-	skull4->setPosition(skullPosition4);
+	skullPosition4.z = skullPosition.z -  5.0f;
+	skull4outline->setPosition(skullPosition4);
 	//skull4->setRotation(skullRotation);
-	skull4->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
-	shared_ptr<Material> skull4Material = shared_ptr<Material>(new Material);
-	skull4Material->loadShader(vsPath, fsPath);
+	skull4outline->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
+	shared_ptr<OutlineMaterial> skull4outlineMaterial = shared_ptr<OutlineMaterial>(new OutlineMaterial);
+	vsPath = ASSET_PATH + SHADER_PATH + "/toonOutlineVS.glsl";
+	fsPath = ASSET_PATH + SHADER_PATH + "/toonOutlineFS.glsl";
+	skull4outlineMaterial->loadShader(vsPath, fsPath);
+	*/
+	//skull4outlineMaterial->loadDiffuseMap(ASSET_PATH + TEXTURE_PATH + "/texture.png");
 
-	skull4Material->loadDiffuseMap(ASSET_PATH + TEXTURE_PATH + "/texture.png");
+	//skull4outlineMaterial->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
+	//skull4Material->setDiffuseMaterial(vec4(0.0f, 1.5f, 1.5f, 1.0f));
+	//skull4Material->setSpecularMaterial(vec4(1.0f, 0.5f, 0.0f, 1.0f));
+	//skull4Material->setAmbientMaterial(vec4(0.0f, 0.5f, 0.0f, 0.0f));
+	string skull4MeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
+	shared_ptr<GameObject> s4 = loadFBXFromFile(skull4MeshPath);
+	shared_ptr<Material> s4Material = shared_ptr<Material>(new Material);
+	skullPosition4.x = skullPosition.x + 30.0f;
+	s4->setPosition(skullPosition4);
+	s4->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
+	vsPath = ASSET_PATH + SHADER_PATH + "/specularVS.glsl";
+	fsPath = ASSET_PATH + SHADER_PATH + "/specularToonFS.glsl";
+	s4Material->setDiffuseMaterial(vec4(0.6f, 0.0f, 0.0f, 1.0f));
+	s4Material->setAmbientMaterial(vec4(1.0f, 0.5f, 0.0f, 1.0f));
+	s4Material->loadShader(vsPath, fsPath);
+	float textureData[] = { 0.3f, 0.3f, 0.3f, 0.6f, 0.6f, 0.6f, 0.8f, 0.8f, 0.8f, 1.1f, 1.1f, 1.1f };
+	s4Material->loadToonMap(textureData, 4);
+	s4->setMaterial(s4Material);
 
-	skull4Material->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
-	skull4Material->setDiffuseMaterial(vec4(0.0f, 1.5f, 1.5f, 1.0f));
-	skull4Material->setSpecularMaterial(vec4(1.0f, 0.5f, 0.0f, 1.0f));
-	skull4Material->setAmbientMaterial(vec4(0.0f, 0.5f, 0.0f, 0.0f));
-	skull4->setMaterial(skull4Material);
-	skull4->update();
 
-	gameObjects.push_back(skull4);
+	//skull4outline->update();
+	//s4->update();
+	//gameObjects.push_back(skull4outline);
+	gameObjects.push_back(s4);
+
+	/*
+	string sMeshPath = ASSET_PATH + MODEL_PATH + "/utah-teapot.fbx";
+	shared_ptr<GameObject> s = loadFBXFromFile(sMeshPath);
+	s->setScale(vec3(0.3f, 0.3f, 0.3f));
+	sPosition.x = sPosition.x - 5.0f;
+	sPosition.y = sPosition.y + 5.0f;
+	s->setPosition(sPosition);
+	//skull->setRotation(skullRotation);
+	s->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
+	shared_ptr<Material> sMaterial = shared_ptr<Material>(new Material);
+	vsPath = ASSET_PATH + SHADER_PATH + "/textureVS.glsl";
+	fsPath = ASSET_PATH + SHADER_PATH + "/textureFS.glsl";
+	sMaterial->loadShader(vsPath, fsPath);
+	sMaterial->loadDiffuseMap(ASSET_PATH + TEXTURE_PATH + "/spooky.png");
+	//sMaterial->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
+	s->setMaterial(sMaterial);
+	s->update();
+
+	gameObjects.push_back(s);*/
 }
 
 void cleanUp()
@@ -180,13 +227,8 @@ void update()
 		FPS=frameCounter;
 		frameTime=0.0f;
 		frameCounter=0;
-		cout<<"FPS "<<FPS<<endl;
-		/*cameraLookAt.x = cameraLookAt.x++;
-		cameraPosition.x = cameraPosition.x++;*/
-		//skullRotation.x = skullRotation.x+0.02f;
-		//skullPosition.x = skullPosition.x++;
-		//skull->setRotation(skullRotation);
-		
+		cout<<"FPS "<<FPS<<endl;		
+
 	}
 
 	projMatrix = perspective(45.0f, 640.0f / 480.0f, 0.1f, 100.0f);
@@ -206,6 +248,7 @@ void update()
 void renderGameObject(shared_ptr<GameObject> gameObject)
 {
 	MVPMatrix = projMatrix*viewMatrix*gameObject->getModelMatrix();
+
 
 	if (gameObject->getMaterial() != NULL)
 	{
@@ -234,10 +277,19 @@ void renderGameObject(shared_ptr<GameObject> gameObject)
 		glActiveTexture(GL_TEXTURE1);
 		glBindTexture(GL_TEXTURE_CUBE_MAP, currentMaterial->getEnvironmentMap());
 		currentMaterial->setUniform("cubeTexture", 1);
-	glBindVertexArray(gameObject->getVertexArrayObject());
 
-	glDrawElements(GL_TRIANGLES, gameObject->getNumberOfIndices(), GL_UNSIGNED_INT, 0);
+		glActiveTexture(GL_TEXTURE2);
+		glBindTexture(GL_TEXTURE_1D, currentMaterial->getToonMap());
+		currentMaterial->setUniform("toonShade", 2);
 
+		if (gameObject->getVertexArrayObject() > 0){
+			glBindVertexArray(gameObject->getVertexArrayObject());
+
+
+
+			glDrawElements(GL_TRIANGLES, gameObject->getNumberOfIndices(), GL_UNSIGNED_INT, 0);
+		}
+		currentMaterial->unbind();
 	for (int i = 0; i < gameObject->getNumberOfChildren(); i++)
 	{
 		renderGameObject(gameObject->getChild(i));
