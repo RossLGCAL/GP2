@@ -10,7 +10,7 @@ GLuint	loadTextureFromFile(const string&	filename)
 	}
 
 	GLuint textureID = convertSDLSurfaceToTexture(imageSurface);
-	SDL_FreeSurface(imageSurface);
+	//SDL_FreeSurface(imageSurface);
 
 	return textureID;
 }
