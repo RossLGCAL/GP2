@@ -1,4 +1,4 @@
-﻿Build started 16/12/2015 03:31:09.
+﻿Build started 16/12/2015 19:23:10.
      1>Project "C:\Users\Connall\Documents\GitHub\GP2\Build\GP2.vcxproj" on node 2 (Build target(s)).
      1>PreBuildEvent:
          setlocal
@@ -39,7 +39,7 @@
          Texture.cpp
          main.cpp
      1>c:\users\connall\documents\github\gp2\include\GameObject.h(43): warning C4267: 'return' : conversion from 'size_t' to 'int', possible loss of data
-     1>C:\Users\Connall\Documents\GitHub\GP2\src\main.cpp(181): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
+     1>C:\Users\Connall\Documents\GitHub\GP2\src\main.cpp(209): warning C4244: '=' : conversion from 'int' to 'float', possible loss of data
          Generating Code...
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Connall\Documents\GitHub\GP2\Build\Debug\GP2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib "C:\Users\Connall\Desktop\GP2\SDL2-devel-2.0.3-VC\SDL2-2.0.3\lib\x64\SDL2main.lib" "C:\Users\Connall\Desktop\GP2\SDL2-devel-2.0.3-VC\SDL2-2.0.3\lib\x64\SDL2.lib" glu32.lib opengl32.lib "C:\Users\Connall\Desktop\GP2\glew-1.12.0-win32\glew-1.12.0\lib\Release\x64\glew32.lib" "C:\Users\Connall\Desktop\GP2\SDL2_image-devel-2.0.0-VC\SDL2_image-2.0.0\lib\x64\SDL2_image.lib" "C:\Users\Connall\Desktop\GP2\SDL2_ttf-2.0.12\lib\x64\SDL2_ttf.lib" "C:\Program Files\Autodesk\FBX\FBX SDK\2016.1\lib\vs2013\x64\release\libfbxsdk.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:/Users/Connall/Documents/GitHub/GP2/Build/Debug/GP2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:/Users/Connall/Documents/GitHub/GP2/Build/Debug/GP2.lib" /MACHINE:X64  /machine:x64 /debug GP2.dir\Debug\main.obj
@@ -51,6 +51,8 @@
          GP2.dir\Debug\GameObject.obj
          GP2.dir\Debug\Mesh.obj
          GP2.dir\Debug\Material.obj
+         LINK : C:\Users\Connall\Documents\GitHub\GP2\Build\Debug\GP2.exe not found or not built by the last incremental link; performing full link
+     1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
          GP2.vcxproj -> C:\Users\Connall\Documents\GitHub\GP2\Build\Debug\GP2.exe
        PostBuildEvent:
          setlocal
@@ -67,4 +69,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:26.53
+Time Elapsed 00:00:27.44

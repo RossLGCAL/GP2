@@ -9,6 +9,14 @@
 #include "GameObject.h"
 #include "Cube.h"
 
+//mouse movement
+int mouseX, mouseY;
+float vAngle = 0;
+float hAngle = 3.14f;
+float mSpeed = 0.01f;
+float speed = 2;
+vec3 rightVector;
+
 //matrices
 mat4 viewMatrix;
 mat4 projMatrix;
@@ -56,6 +64,27 @@ int frameCounter=0;
 float FPS;
 float frameTime;
 
+void mouseMovement()
+{
+	SDL_GetMouseState(&mouseX, &mouseY);
+	hAngle += mSpeed * float(FRAME_BUFFER_WIDTH / 2 - mouseX);
+	if (degrees(hAngle) > 360.0f)
+	{
+		hAngle = radians(0.0f);
+	}
+	else if (degrees(hAngle) < 0.0f)
+	{
+		hAngle = radians(360.0f);
+	}
+	vAngle += mSpeed * float(FRAME_BUFFER_HEIGHT / 2 - mouseY);
+	if (degrees(vAngle) >= 90.0f)
+	{
+		vAngle = radians(-89.9f);
+	}
+	cameraLookAt = vec3(cos(vAngle)*sin(hAngle), sin(vAngle), cos(vAngle)*cos(hAngle));
+	rightVector = vec3(sin(hAngle - 3.14 / 2), 0, cos(hAngle - 3.14 / 2));
+}
+
 void initScene()
 {
 	currentTicks = SDL_GetTicks();
@@ -80,7 +109,6 @@ void initScene()
 	skyBox = shared_ptr<GameObject>(new GameObject);
 	skyBox->setMesh(cubeMesh);
 	skyBox->setMaterial(skyMaterial);
-
 	skyBox->update();
 
 	//Skulls
@@ -258,7 +286,6 @@ void renderScene()
 
 void render()
 {
-	//renderPostQuad();
 	renderScene();
 }
 
