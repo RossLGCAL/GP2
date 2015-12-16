@@ -1,5 +1,18 @@
-﻿Build started 16/12/2015 19:39:44.
+﻿Build started 16/12/2015 21:39:08.
+     1>Project "C:\Users\Connall\Documents\GitHub\GP2\Build\ZERO_CHECK.vcxproj" on node 2 (Build target(s)).
+     1>CustomBuild:
+         Checking Build System
+         CMake is re-running because C:/Users/Connall/Documents/GitHub/GP2/Build/CMakeFiles/generate.stamp is out-of-date.
+           the file 'C:/Users/Connall/Documents/GitHub/GP2/CMakeLists.txt'
+           is newer than 'C:/Users/Connall/Documents/GitHub/GP2/Build/CMakeFiles/generate.stamp.depend'
+           result='-1'
+         -- SDL_LIB_DIR = C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2main.lib;C:/Users/Connall/Desktop/GP2/SDL2-devel-2.0.3-VC/SDL2-2.0.3/lib/x64/SDL2.lib
+         -- GLM_INCLUDE_DIR = C:/Users/Connall/Desktop/GP2/glm-0.9.7.0/glm
+         -- Configuring done
+         -- Generating done
+         -- Build files have been written to: C:/Users/Connall/Documents/GitHub/GP2/Build
+     1>Done Building Project "C:\Users\Connall\Documents\GitHub\GP2\Build\ZERO_CHECK.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.25
+Time Elapsed 00:00:01.27
