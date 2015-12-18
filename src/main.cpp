@@ -34,8 +34,8 @@ GLuint currentDiffuseMap = 0;
 shared_ptr<Material> currentMaterial;
 
 vec4 ambientLightColour=vec4(1.0f,1.0f,1.0f,1.0f);
-vec4 diffuseLightColour=vec4(1.0f,1.0f,1.0f,1.0f);
-vec4 specularLightColour=vec4(1.0f,1.0f,1.0f,1.0f);
+vec4 diffuseLightColour=vec4(2.0f,1.0f,1.0f,1.0f);
+vec4 specularLightColour=vec4(3.0f,1.0f,1.0f,1.0f);
 float specularPower=25.0f;
 
 vec3 lightDirection=vec3(0.0f,0.0f,1.0f);
@@ -121,6 +121,7 @@ void initScene()
 	fsPath=ASSET_PATH+SHADER_PATH+"/specularReflectionFS.glsl";
 	skullMaterial->loadShader(vsPath,fsPath);
 	skullMaterial->loadSkyBoxTextures(skyBoxFront,skyBoxBack,skyBoxLeft,skyBoxRight,skyBoxUp,skyBoxDown);
+	skullMaterial->loadDiffuseMap(ASSET_PATH + TEXTURE_PATH + "/texture.png");
 	skull->setMaterial(skullMaterial);
 	skull->update();
 
