@@ -83,9 +83,9 @@ void initScene()
 
 	skyBox->update();
 
-	//Skulls
-	vsPath = ASSET_PATH + SHADER_PATH + "/specularReflectionVS.glsl";
-	fsPath = ASSET_PATH + SHADER_PATH + "/specularReflectionFS.glsl";
+	//Shaders
+	vsPath = ASSET_PATH + SHADER_PATH + "/ParallaxMappingVS2.glsl";
+	fsPath = ASSET_PATH + SHADER_PATH + "/ParallaxMappingFS2.glsl";
 
 	//Skull 1
 	string skullMeshPath = ASSET_PATH + MODEL_PATH + "/skull.fbx";
