@@ -62,6 +62,7 @@ int frameCounter=0;
 float FPS;
 float frameTime;
 
+//This code is super messy and horrible, please forgive
 void initScene()
 {
 	currentTicks = SDL_GetTicks();
@@ -112,14 +113,14 @@ void initScene()
 	//skull2->setRotation(skullRotation);
 	skull2->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
 	shared_ptr<Material> skull2Material = shared_ptr<Material>(new Material);
-	string fsPath1 = ASSET_PATH + SHADER_PATH + "/textureFS.glsl";
-	string vsPath1 = ASSET_PATH + SHADER_PATH + "/textureVS.glsl";
+	string fsPath1 = ASSET_PATH + SHADER_PATH + "/specularReflectionFS.glsl";
+	string vsPath1 = ASSET_PATH + SHADER_PATH + "/specularReflectionVS.glsl";
 	skull2Material->loadShader(vsPath1, fsPath1);
 
-	skull2Material->loadDiffuseMap(ASSET_PATH + TEXTURE_PATH + "/spooky.png");
+	//skull2Material->loadDiffuseMap(ASSET_PATH + TEXTURE_PATH + "/spooky.png");
 
-	//skull2Material->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
-	//skull2Material->setDiffuseMaterial(vec4(1.0f,0.5f,0.0f,1.0f));
+	skull2Material->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
+	skull2Material->setDiffuseMaterial(vec4(1.0f,0.5f,0.0f,1.0f));
 	skull2->setMaterial(skull2Material);
 	skull2->update();
 
@@ -188,25 +189,41 @@ void initScene()
 	//gameObjects.push_back(skull4outline);
 	gameObjects.push_back(s4);
 
-	/*
-	string sMeshPath = ASSET_PATH + MODEL_PATH + "/utah-teapot.fbx";
-	shared_ptr<GameObject> s = loadFBXFromFile(sMeshPath);
-	s->setScale(vec3(0.3f, 0.3f, 0.3f));
-	sPosition.x = sPosition.x - 5.0f;
-	sPosition.y = sPosition.y + 5.0f;
-	s->setPosition(sPosition);
-	//skull->setRotation(skullRotation);
-	s->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
-	shared_ptr<Material> sMaterial = shared_ptr<Material>(new Material);
+
+	shared_ptr<GameObject> box = loadFBXFromFile(skull2MeshPath);
+	box->setMesh(cubeMesh);
+	box->setScale(vec3(0.7f, 0.7f, 0.7f));
+	skullPosition2.x = skullPosition.x - 25.0f;
+	skullPosition2.z = skullPosition2.z - 15.0f;
+	box->setPosition(skullPosition2);
+	//skull2->setRotation(skullRotation);
+	box->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
+	shared_ptr<Material> boxMaterial = shared_ptr<Material>(new Material);
 	vsPath = ASSET_PATH + SHADER_PATH + "/textureVS.glsl";
 	fsPath = ASSET_PATH + SHADER_PATH + "/textureFS.glsl";
-	sMaterial->loadShader(vsPath, fsPath);
-	sMaterial->loadDiffuseMap(ASSET_PATH + TEXTURE_PATH + "/spooky.png");
-	//sMaterial->loadSkyBoxTextures(skyBoxFront, skyBoxBack, skyBoxLeft, skyBoxRight, skyBoxUp, skyBoxDown);
-	s->setMaterial(sMaterial);
-	s->update();
+	boxMaterial->loadShader(vsPath, fsPath);
+	boxMaterial->loadDiffuseMap(ASSET_PATH + TEXTURE_PATH + "/spooky.png");
+	box->setMaterial(boxMaterial);
+	box->update();
 
-	gameObjects.push_back(s);*/
+	gameObjects.push_back(box);
+
+	shared_ptr<GameObject> box2 = loadFBXFromFile(skull2MeshPath);
+	box2->setMesh(cubeMesh);
+	box2->setScale(vec3(0.7f, 0.7f, 0.7f));
+	skullPosition2.x = skullPosition.x + 70.0f;
+	box2->setPosition(skullPosition2);
+	//skull2->setRotation(skullRotation);
+	box2->setRotationSpeed(vec3(0.0f, 1.0f, 0.0f));
+	shared_ptr<Material> box2Material = shared_ptr<Material>(new Material);
+	box2Material->loadShader(vsPath, fsPath);
+	box2Material->loadDiffuseMap(ASSET_PATH + TEXTURE_PATH + "/spooky.png");
+	box2->setMaterial(box2Material);
+	box2->update();
+
+	gameObjects.push_back(box2);
+
+
 }
 
 void cleanUp()
