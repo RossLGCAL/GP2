@@ -39,7 +39,7 @@ void GameObject::update()
 	}
 	mat4 translationMatrix = translate(mat4(1.0f), m_Position);
 	mat4 scaleMatrix = scale(mat4(1.0f), m_Scale);
-
+	//Adam
 	mat4 rotationMatrix = rotate(mat4(1.0f), (m_Rotation.x+totalTime)*m_RotationSpeed.x, vec3(1.0f, 0.0f, 0.0f))*
 		rotate(mat4(1.0f), (m_Rotation.y + totalTime)*m_RotationSpeed.y, vec3(0.0f, 1.0f, 0.0f))*
 		rotate(mat4(1.0f), (m_Rotation.z + totalTime)*m_RotationSpeed.z, vec3(0.0f, 0.0f, 1.0f));

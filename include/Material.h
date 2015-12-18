@@ -14,12 +14,21 @@ public:
 	  glUseProgram(m_ShaderProgram);
   };
 
+
+  virtual void unbind()
+  {
+
+  };
+
+
   void loadShader(const string& vsFilename, const string& fsFilename);
 
   void loadDiffuseMap(const string& filename);
 
   void loadSkyBoxTextures(const string& filenamePosZ, const string& filenameNegZ, const string& filenamePosX,
     const string& filenameNegX, const string& filenamePosY, const string& filenameNegY);
+
+  void loadToonMap(float *pData, int width);
 
   vec4& getAmbientMaterial()
   {
@@ -71,6 +80,11 @@ public:
     return m_EnvironmentMap;
   };
 
+  GLuint getToonMap()
+  {
+	  return m_ToonShadeMap;
+  };
+
   void setUniform(const string& name, vec3& v)
   {
 	  glUniform3fv(m_UniformLocationMap[name], 1, value_ptr(v));
@@ -112,6 +126,7 @@ private:
 
   GLuint m_DiffuseMap;
   GLuint m_EnvironmentMap;
+  GLuint m_ToonShadeMap;
 
   map<string, GLint> m_UniformLocationMap;
 };
