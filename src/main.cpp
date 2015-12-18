@@ -33,7 +33,7 @@ vec4 ambientLightColour=vec4(1.0f,1.0f,1.0f,1.0f);
 vec4 diffuseLightColour=vec4(1.0f,1.0f,1.0f,1.0f);
 vec4 specularLightColour=vec4(1.0f,1.0f,1.0f,1.0f);
 float specularPower=25.0f;
-
+//Adam
 vec3 lightDirection=vec3(0.0f,0.0f,1.0f);
 vec3 cameraPosition=vec3(0.0f,0.0f,10.0f);
 vec3 cameraLookAt = vec3(0.0f, 0.0f, 0.0f);
@@ -62,8 +62,8 @@ int frameCounter=0;
 float FPS;
 float frameTime;
 
-//This code is super messy and horrible, please forgive
-void initScene()
+//This code is super messy and horrible, please forgive, Adam
+void initScene()//Adam
 {
 	currentTicks = SDL_GetTicks();
 	totalTime = 0.0f;
